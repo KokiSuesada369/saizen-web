@@ -3,406 +3,586 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ホームページ制作｜最短即日納品・1万円〜｜SAIZEN WEB</title>
-  <meta name="description" content="LPは1万円、本格サイトは3万円、最短即日納品。完成イメージを先に確認してからお支払い。月額費用なし。" />
+  <title>SAIZEN WEB｜ホームページ制作 ¥10,000〜即日納品</title>
+  <meta name="description" content="LP¥10,000・本格HP¥30,000、最短即日納品。完成イメージを確認してからお支払い。思っていたのと違うがゼロ。追加月額費用なし。" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #0a0a0a; --white: #ffffff; --accent: #1a56db;
-      --gray: #f4f4f5; --gray2: #6b7280; --border: #e5e7eb; --radius: 12px;
+      --accent: #f97316;
+      --accent-light: #fed7aa;
+      --accent-dark: #c2410c;
+      --black: #0d0d1a;
+      --white: #ffffff;
+      --gray1: #1a1a2e;
+      --gray2: #6b7280;
+      --gray3: #9ca3af;
+      --border: #e5e7eb;
+      --bg-light: #f8f9fa;
     }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; color: var(--black); background: var(--white); line-height: 1.7; }
-    a { color: inherit; text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
 
+    /* ===== NAV ===== */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,0.94); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,26,0.95); backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw; height: 64px;
+      padding: 0 24px; height: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; color: var(--black); }
-    .nav-logo img { height: 36px; width: auto; display: block; }
+    .nav-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.05em; color: var(--white); }
     .nav-logo span { color: var(--accent); }
-    .nav-cta { background: var(--accent); color: var(--white); padding: 10px 22px; border-radius: 100px; font-size: .875rem; font-weight: 700; transition: opacity .2s; }
-    .nav-cta:hover { opacity: .85; }
-
-    .hero {
-      margin-top: 64px;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a237e 100%);
-      color: var(--white); padding: 80px 5vw 70px;
-      text-align: center; position: relative; overflow: hidden;
+    .nav-cta {
+      background: var(--accent); color: var(--white);
+      padding: 8px 20px; border-radius: 6px;
+      font-size: 0.85rem; font-weight: 700;
+      transition: opacity 0.2s;
     }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(26,86,219,.3) 0%, transparent 60%); }
-    .hero-badge { display: inline-block; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); border-radius: 100px; padding: 6px 18px; font-size: .8rem; font-weight: 600; margin-bottom: 24px; letter-spacing: .06em; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.2; letter-spacing: -.03em; margin-bottom: 36px; }
-    .hero h1 em { font-style: normal; background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero p { font-size: clamp(.95rem, 2vw, 1.1rem); color: rgba(255,255,255,.7); max-width: 520px; margin: 0 auto 40px; }
-    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: var(--white); padding: 16px 36px; border-radius: 100px; font-size: 1rem; font-weight: 700; box-shadow: 0 4px 24px rgba(26,86,219,.5); transition: transform .2s, box-shadow .2s; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(26,86,219,.6); }
-    .btn-secondary { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); color: var(--white); padding: 16px 36px; border-radius: 100px; font-size: 1rem; font-weight: 600; transition: background .2s; }
-    .btn-secondary:hover { background: rgba(255,255,255,.18); }
+    .nav-cta:hover { opacity: 0.85; }
 
-    .stats { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
-    .stat { flex: 1 1 160px; text-align: center; padding: 32px 20px; border-right: 1px solid var(--border); }
-    .stat:last-child { border-right: none; }
-    .stat-num { font-size: 2rem; font-weight: 900; color: var(--accent); display: block; letter-spacing: -.04em; }
-    .stat-label { font-size: .82rem; color: var(--gray2); margin-top: 4px; }
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a0a00 50%, #0d0d1a 100%);
+      color: var(--white); text-align: center;
+      padding: 80px 24px 100px;
+    }
+    .hero-logo {
+      height: 80px; width: auto;
+      margin-bottom: 24px;
+      display: block; margin-left: auto; margin-right: auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(249,115,22,0.15); border: 1px solid var(--accent);
+      color: var(--accent); font-size: 0.8rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+      letter-spacing: 0.08em;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 900; line-height: 1.3; margin-bottom: 16px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: rgba(255,255,255,0.75); margin-bottom: 12px;
+    }
+    /* 確認してからお支払いバナー */
+    .hero-trust {
+      display: inline-block;
+      background: linear-gradient(90deg, rgba(249,115,22,0.2), rgba(249,115,22,0.1));
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 14px 28px;
+      margin: 16px auto 32px;
+      max-width: 520px;
+    }
+    .hero-trust .trust-main {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 900; color: var(--white); margin-bottom: 4px;
+    }
+    .hero-trust .trust-main span { color: var(--accent); }
+    .hero-trust .trust-sub {
+      font-size: 0.85rem; color: rgba(255,255,255,0.7);
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: var(--white);
+      padding: 14px 32px; border-radius: 8px;
+      font-size: 1rem; font-weight: 800;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.4);
+      padding: 14px 32px; border-radius: 8px;
+      font-size: 1rem; font-weight: 700;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--white); }
 
-    section { padding: 80px 5vw; }
-    .section-tag { font-size: .72rem; font-weight: 700; letter-spacing: .14em; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; }
-    h2 { font-size: clamp(1.5rem, 3.5vw, 2.4rem); font-weight: 900; line-height: 1.25; letter-spacing: -.03em; margin-bottom: 14px; }
-    .lead { font-size: 1rem; color: var(--gray2); max-width: 540px; margin-bottom: 48px; }
-    .center { text-align: center; }
-    .center .lead { margin: 0 auto 48px; }
+    /* ===== STATS BAR ===== */
+    .stats {
+      background: var(--accent); color: var(--white);
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+    }
+    .stat-item {
+      text-align: center; padding: 20px 32px;
+      border-right: 1px solid rgba(255,255,255,0.25);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 1.5rem; font-weight: 900; display: block; }
+    .stat-label { font-size: 0.75rem; opacity: 0.85; }
 
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 860px; margin: 0 auto; }
-    .plan { border: 1px solid var(--border); border-radius: var(--radius); padding: 40px 32px; position: relative; background: var(--white); transition: box-shadow .2s, transform .2s; }
-    .plan:hover { box-shadow: 0 12px 40px rgba(0,0,0,.1); transform: translateY(-4px); }
-    .plan.featured { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
-    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--white); font-size: .75rem; font-weight: 700; padding: 4px 16px; border-radius: 100px; }
-    .plan-name { font-size: .82rem; font-weight: 700; color: var(--gray2); margin-bottom: 8px; }
-    .plan-price { font-size: 3rem; font-weight: 900; letter-spacing: -.04em; line-height: 1; margin-bottom: 4px; }
-    .plan-price sup { font-size: 1.4rem; vertical-align: super; }
-    .plan-price small { font-size: 1rem; font-weight: 500; color: var(--gray2); }
-    .plan-tax { font-size: .78rem; color: var(--gray2); margin-bottom: 24px; }
-    .plan-desc { font-size: .88rem; color: var(--gray2); margin-bottom: 28px; line-height: 1.6; }
-    .plan-features { list-style: none; margin-bottom: 32px; }
-    .plan-features li { font-size: .88rem; padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-    .plan-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
-    .plan-cta { display: block; text-align: center; background: var(--black); color: var(--white); padding: 14px; border-radius: 8px; font-weight: 700; font-size: .95rem; transition: opacity .2s; }
-    .plan.featured .plan-cta { background: var(--accent); }
-    .plan-cta:hover { opacity: .8; }
+    /* ===== SECTIONS ===== */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(249,115,22,0.1); color: var(--accent);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      padding: 3px 12px; border-radius: 20px; margin-bottom: 10px;
+    }
+    h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 900; margin-bottom: 8px; }
+    .section-desc { color: var(--gray2); margin-bottom: 48px; font-size: 0.95rem; }
 
-    .reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .reason { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; }
-    .reason.highlight-reason { background: #1c0f00; border-color: #f97316; border-width: 2px; }
-    .reason.highlight-reason h3 { color: #fb923c; }
-    .reason.highlight-reason p { color: rgba(255,255,255,.7); }
-    .reason.highlight-reason .reason-num { color: #f97316; opacity: 1; }
-    .reason-num { font-size: 2rem; font-weight: 900; color: var(--accent); opacity: .2; line-height: 1; margin-bottom: 10px; letter-spacing: -.04em; }
-    .reason h3 { font-size: .98rem; font-weight: 800; margin-bottom: 8px; }
-    .reason p { font-size: .85rem; color: var(--gray2); line-height: 1.65; }
+    /* ===== PRICING ===== */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .plan-card {
+      border: 2px solid var(--border); border-radius: 16px;
+      padding: 32px 28px; position: relative; background: var(--white);
+    }
+    .plan-card.featured { border-color: var(--accent); }
+    .plan-badge-top {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: var(--white);
+      font-size: 0.75rem; font-weight: 800; padding: 4px 16px; border-radius: 20px;
+      white-space: nowrap;
+    }
+    .plan-name { font-size: 0.85rem; font-weight: 700; color: var(--gray2); margin-bottom: 6px; }
+    .plan-price { font-size: 2.4rem; font-weight: 900; color: var(--black); line-height: 1; }
+    .plan-price span { font-size: 1rem; color: var(--gray2); font-weight: 400; }
+    .plan-desc { font-size: 0.85rem; color: var(--gray2); margin: 10px 0 20px; }
+    .plan-features { list-style: none; }
+    .plan-features li { padding: 7px 0; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .plan-features li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
 
-    .flow { background: #f8f9fa; color: var(--black); }
-    .flow h2 { color: var(--black); }
-    .flow .section-tag { color: var(--accent); }
-    .flow-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .flow-step { padding: 28px 20px; border-right: 1px solid var(--border); background: var(--white); }
-    .flow-step:last-child { border-right: none; }
-    .flow-step.key-step { background: #fff7ed; border-right-color: #fed7aa; }
-    .step-num { font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 12px; }
-    .flow-step.key-step .step-num { color: #f97316; }
-    .step-title { font-size: .95rem; font-weight: 800; margin-bottom: 8px; color: var(--black); }
-    .flow-step.key-step .step-title { color: #c2410c; }
-    .step-body { font-size: .82rem; color: var(--gray2); line-height: 1.65; }
+    /* ===== REASONS ===== */
+    .reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .reason {
+      background: var(--bg-light); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+    }
+    .reason.highlight-reason {
+      background: #1c0f00; border-color: var(--accent); border-width: 2px;
+    }
+    .reason-num { font-size: 0.75rem; font-weight: 700; color: var(--gray3); margin-bottom: 6px; }
+    .highlight-reason .reason-num { color: var(--accent-light); }
+    .reason h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .highlight-reason h3 { color: #fb923c; }
+    .reason p { font-size: 0.85rem; color: var(--gray2); line-height: 1.6; }
+    .highlight-reason p { color: #fed7aa; }
 
-    .comparison-wrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 580px; }
-    thead th { background: var(--black); color: var(--white); padding: 14px 18px; text-align: center; font-weight: 700; }
-    thead th:first-child { text-align: left; background: var(--gray); color: var(--black); }
-    thead th.highlight { background: var(--accent); }
-    tbody tr:nth-child(even) { background: var(--gray); }
-    td { padding: 13px 18px; border-bottom: 1px solid var(--border); }
-    td:first-child { font-weight: 600; }
-    td:not(:first-child) { text-align: center; }
-    td.highlight { font-weight: 700; color: var(--accent); }
+    /* ===== FLOW ===== */
+    .flow { background: var(--bg-light); }
+    .flow-steps { display: flex; flex-direction: column; gap: 0; }
+    .flow-step {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: var(--white); border: 1px solid var(--border);
+      border-right: 4px solid var(--border);
+      border-radius: 12px; padding: 24px; margin-bottom: 12px;
+    }
+    .flow-step.key-step {
+      background: #fff7ed; border-right-color: var(--accent-light);
+    }
+    .step-num {
+      min-width: 44px; height: 44px; border-radius: 50%;
+      background: var(--black); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 800;
+    }
+    .key-step .step-num { background: var(--accent); }
+    .step-title { font-size: 1rem; font-weight: 800; margin-bottom: 4px; }
+    .key-step .step-title { color: var(--accent-dark); }
+    .step-desc { font-size: 0.85rem; color: var(--gray2); }
 
-    .faq-list { max-width: 700px; margin: 0 auto; }
-    details { border-bottom: 1px solid var(--border); }
-    summary { padding: 20px 0; font-weight: 700; font-size: .93rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    summary::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--accent); flex-shrink: 0; }
-    details[open] summary::after { content: '−'; }
-    details p { padding: 0 0 20px; color: var(--gray2); font-size: .88rem; line-height: 1.75; }
+    /* ===== COMPARISON ===== */
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .compare-table th, .compare-table td {
+      padding: 14px 16px; text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table th { background: var(--black); color: var(--white); font-weight: 700; }
+    .compare-table th:first-child { text-align: left; }
+    .compare-table td:first-child { text-align: left; font-weight: 600; }
+    .compare-table tr:nth-child(even) td { background: var(--bg-light); }
+    .check { color: var(--accent); font-weight: 900; font-size: 1.1rem; }
+    .cross { color: var(--gray3); }
+    .col-us { background: rgba(249,115,22,0.06) !important; }
+    .col-us-h { background: var(--accent) !important; color: var(--white) !important; }
 
-    .contact { background: var(--accent); color: var(--white); text-align: center; }
-    .contact h2 { color: var(--white); }
-    .contact .lead { color: rgba(255,255,255,.8); margin: 0 auto 40px; }
-    .contact-form { max-width: 500px; margin: 0 auto; background: var(--white); border-radius: 16px; padding: 36px 32px; }
-    .form-group { margin-bottom: 18px; text-align: left; }
-    label { display: block; font-size: .83rem; font-weight: 700; color: var(--black); margin-bottom: 6px; }
-    input, textarea, select { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: .93rem; font-family: inherit; color: var(--black); transition: border-color .2s; }
-    input:focus, textarea:focus { outline: none; border-color: var(--accent); }
-    textarea { min-height: 110px; resize: vertical; }
-    .form-submit { width: 100%; background: var(--accent); color: var(--white); border: none; padding: 15px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity .2s; }
-    .form-submit:hover { opacity: .85; }
-    .form-note { font-size: .75rem; color: var(--gray2); margin-top: 10px; text-align: center; }
+    /* ===== FAQ ===== */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    details {
+      border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden;
+    }
+    summary {
+      padding: 18px 20px; font-weight: 700; cursor: pointer;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.2rem; color: var(--accent); }
+    details[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 20px 18px; color: var(--gray2); font-size: 0.9rem; line-height: 1.8; }
 
-    footer { background: var(--white); color: var(--gray2); padding: 36px 5vw; font-size: .82rem; border-top: 1px solid var(--border); }
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
-    .footer-logo { display: flex; align-items: center; gap: 8px; font-size: 1rem; font-weight: 800; color: var(--black); }
-    .footer-logo img { height: 28px; width: auto; }
+    /* ===== CONTACT ===== */
+    .contact { background: var(--black); color: var(--white); text-align: center; }
+    .contact h2 { color: var(--white); margin-bottom: 12px; }
+    .contact .section-desc { color: rgba(255,255,255,0.6); }
+    .contact-form { max-width: 560px; margin: 0 auto; text-align: left; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: rgba(255,255,255,0.8); }
+    input, textarea, select {
+      width: 100%; padding: 12px 14px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; color: var(--white); font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none; border-color: var(--accent);
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    select option { background: var(--black); }
+    .form-submit {
+      width: 100%; background: var(--accent); color: var(--white);
+      border: none; padding: 15px; border-radius: 8px;
+      font-size: 1rem; font-weight: 800; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .form-submit:hover { opacity: 0.85; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--white); color: var(--gray2);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px 24px;
+    }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--black); display: inline-block; margin-bottom: 8px; }
     .footer-logo span { color: var(--accent); }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links a { color: var(--gray2); font-size: .8rem; transition: color .2s; }
-    .footer-links a:hover { color: var(--black); }
-    .footer-copy { width: 100%; text-align: center; margin-top: 24px; font-size: .73rem; }
+    .footer-tagline { font-size: 0.82rem; color: var(--gray2); margin-bottom: 20px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.82rem; margin-bottom: 20px; }
+    .footer-links a { color: var(--gray2); }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--gray3); }
 
     @media (max-width: 600px) {
-      .stat { border-right: none; border-bottom: 1px solid var(--border); }
-      .flow-step { border-right: none; border-bottom: 1px solid var(--border); }
-      .contact-form { padding: 24px 18px; }
+      .stat-item { padding: 16px 18px; }
+      .stat-num { font-size: 1.2rem; }
+      nav { padding: 0 16px; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">
-    <img src="logo-01a.png" alt="SAIZEN WEB ロゴ" />
-    SAIZEN <span>WEB</span>
-  </a>
+  <a href="index.html" class="nav-logo">SAIZEN <span>WEB</span></a>
   <a href="#contact" class="nav-cta">無料相談する</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">⚡ 最短即日納品</div>
-  <h1>ホームページが<br><em>1万円〜</em><br>即日で完成します</h1>
-  <p>LP制作1万円・本格サイト3万円。月額費用一切なし。<br>スモールビジネスのスタートに最適な買い切り型Web制作。</p>
+  <img src="logo-01a.png" alt="SAIZEN WEB" class="hero-logo" />
+  <div class="hero-badge">✦ ホームページ制作サービス</div>
+  <h1>ホームページが<em>¥10,000〜</em><br>即日で完成します</h1>
+  <p class="hero-sub">LP・コーポレートサイト・ランディングページ対応</p>
+  <div class="hero-trust">
+    <div class="trust-main">完成イメージを確認して<span>から</span>お支払い</div>
+    <div class="trust-sub">「思っていたのと違う」がゼロ。納得できなければ費用はかかりません。</div>
+  </div>
   <div class="hero-btns">
-    <a href="#contact" class="btn-primary">無料で相談する</a>
+    <a href="#contact" class="btn-primary">今すぐ無料相談する</a>
     <a href="#pricing" class="btn-secondary">料金を見る</a>
   </div>
 </section>
 
+<!-- STATS -->
 <div class="stats">
-  <div class="stat"><span class="stat-num">¥10,000〜</span><div class="stat-label">LP制作（税別）</div></div>
-  <div class="stat"><span class="stat-num">¥30,000〜</span><div class="stat-label">本格サイト・6Pまで（税別）</div></div>
-  <div class="stat"><span class="stat-num">最短即日</span><div class="stat-label">納品スピード</div></div>
-  <div class="stat"><span class="stat-num">¥0</span><div class="stat-label">月額費用</div></div>
+  <div class="stat-item">
+    <span class="stat-num">¥10,000〜</span>
+    <span class="stat-label">LP制作</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">¥30,000〜</span>
+    <span class="stat-label">本格HP（6ページ）</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">最短即日</span>
+    <span class="stat-label">納品スピード</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">¥0</span>
+    <span class="stat-label">月額費用</span>
+  </div>
 </div>
 
-<section id="pricing" class="center">
-  <div class="section-tag">PRICING</div>
-  <h2>シンプルな料金体系</h2>
-  <p class="lead">必要なプランだけ選べる買い切り料金。月額費用は一切かかりません。</p>
-  <div class="pricing-grid">
-    <div class="plan">
-      <div class="plan-name">ランディングページ</div>
-      <div class="plan-price"><sup>¥</sup>10,000<small> 〜</small></div>
-      <div class="plan-tax">税別 / 買い切り</div>
-      <div class="plan-desc">1枚完結のシンプルなLP。商品・サービスの告知やキャンペーンに最適です。</div>
-      <ul class="plan-features">
-        <li>1ページ（縦スクロール完結）</li>
-        <li>スマホ対応（レスポンシブ）</li>
-        <li>お問い合わせフォーム設置</li>
-        <li>最短即日納品</li>
-        <li>修正1回無料</li>
-      </ul>
-      <a href="#contact" class="plan-cta">このプランで相談する</a>
-    </div>
-    <div class="plan featured">
-      <div class="plan-badge">人気プラン</div>
-      <div class="plan-name">本格ホームページ</div>
-      <div class="plan-price"><sup>¥</sup>30,000<small> 〜</small></div>
-      <div class="plan-tax">税別 / 買い切り</div>
-      <div class="plan-desc">最大6ページまで追加料金なし。会社概要・料金・実績ページも標準で含まれます。</div>
-      <ul class="plan-features">
-        <li>最大6ページまで追加料金なし</li>
-        <li>SEO基本設定込み</li>
-        <li>スマホ対応（レスポンシブ）</li>
-        <li>Googleマップ連携</li>
-        <li>お問い合わせフォーム設置</li>
-        <li>Googleアクセス解析設置</li>
-        <li>最短即日納品</li>
-        <li>修正3回無料</li>
-      </ul>
-      <a href="#contact" class="plan-cta">このプランで相談する</a>
-    </div>
-  </div>
-  <p style="margin-top:28px; font-size:.82rem; color:var(--gray2);">
-    ※ ドメイン・サーバー費はお客様実費です。代行オプションあり。<br>
-    ※ 7ページ以上はオプション対応（別途お見積り）。
-  </p>
-</section>
-
-<section style="background:var(--gray);">
-  <div class="section-tag">REASONS</div>
-  <h2>選ばれる6つの理由</h2>
-  <div class="reasons-grid">
-    <div class="reason highlight-reason">
-      <div class="reason-num">01</div>
-      <h3>完成イメージを先に確認、気に入ったら支払い</h3>
-      <p>まずデザイン案を無料でご提示。内容にご満足いただいてから初めてお支払い・制作スタート。「思っていたのと違う」が一切ありません。</p>
-    </div>
-    <div class="reason">
-      <div class="reason-num">02</div>
-      <h3>最短即日で納品</h3>
-      <p>素材が揃っていれば、ご依頼当日の納品も可能です。スピード感が最大の強みです。</p>
-    </div>
-    <div class="reason">
-      <div class="reason-num">03</div>
-      <h3>料金が明確・月額0円</h3>
-      <p>見積もり後の追加費用なし。月額サブスクも不要。長期的なコストを抑えられます。</p>
-    </div>
-    <div class="reason">
-      <div class="reason-num">04</div>
-      <h3>本格プランは6ページまで定額</h3>
-      <p>3万円プランは最大6ページまで追加料金なし。会社概要・料金・実績ページなども含まれます。</p>
-    </div>
-    <div class="reason">
-      <div class="reason-num">05</div>
-      <h3>業種・規模を問わず対応</h3>
-      <p>個人事業主から中小企業まで対応。写真や文章が揃っていなくても制作をスタートできます。</p>
-    </div>
-    <div class="reason">
-      <div class="reason-num">06</div>
-      <h3>完成・公開までワンストップ</h3>
-      <p>ドメイン取得・サーバー設定・公開まで代行オプションで対応。制作から公開まで丸ごとお任せいただけます。</p>
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="section-tag">PRICING</div>
+    <h2>シンプルな料金プラン</h2>
+    <p class="section-desc">月額費用・隠れた追加費用は一切なし。</p>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">ランディングページ</div>
+        <div class="plan-price">¥10,000<span>（税込）</span></div>
+        <div class="plan-desc">1ページ完結型。集客・告知に最適。</div>
+        <ul class="plan-features">
+          <li>1ページLP</li>
+          <li>レスポンシブ対応（PC・スマホ）</li>
+          <li>最短即日納品</li>
+          <li>お問い合わせフォーム設置</li>
+          <li>修正1回無料</li>
+          <li>GA4タグ設置（ID支給時）</li>
+        </ul>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge-top">人気プラン</div>
+        <div class="plan-name">本格ホームページ</div>
+        <div class="plan-price">¥30,000<span>（税込）</span></div>
+        <div class="plan-desc">最大6ページまで追加料金なし。</div>
+        <ul class="plan-features">
+          <li>最大6ページ（追加料金なし）</li>
+          <li>レスポンシブ対応（PC・スマホ）</li>
+          <li>最短即日納品</li>
+          <li>お問い合わせフォーム設置</li>
+          <li>修正2回無料</li>
+          <li>GA4タグ設置（ID支給時）</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- REASONS -->
+<section style="background: var(--black); color: var(--white);">
+  <div class="section-inner">
+    <div class="section-tag">WHY US</div>
+    <h2 style="color:var(--white);">選ばれる6つの理由</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.6)">他社との違いをご確認ください。</p>
+    <div class="reasons-grid">
+      <div class="reason highlight-reason">
+        <div class="reason-num">#01</div>
+        <h3>完成を見てからお支払い</h3>
+        <p>デザイン完成後にご確認いただき、納得された場合のみお支払いへ進みます。「思っていたのと違う」というリスクがゼロです。</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">#02</div>
+        <h3>業界最安値水準</h3>
+        <p>LP¥10,000・本格HP¥30,000。制作会社や個人フリーランスより圧倒的に低コストで高品質なサイトを提供します。</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">#03</div>
+        <h3>最短即日納品</h3>
+        <p>ご依頼から最短当日中に納品。急ぎのキャンペーンや新規開業にも対応します。</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">#04</div>
+        <h3>月額費用ゼロ</h3>
+        <p>制作費のみのシンプル料金。維持費・管理費などの継続費用は一切いただきません。</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">#05</div>
+        <h3>スマホ対応（レスポンシブ）</h3>
+        <p>PC・スマートフォン・タブレット、あらゆるデバイスで最適に表示されるサイトを制作します。</p>
+      </div>
+      <div class="reason">
+        <div class="reason-num">#06</div>
+        <h3>丁寧なヒアリング</h3>
+        <p>ご要望を丁寧にお聞きし、ビジネスの目的に合ったデザインをご提案。初めての方でも安心です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
 <section class="flow">
-  <div class="section-tag">FLOW</div>
-  <h2>ご依頼の流れ</h2>
-  <div class="flow-steps">
-    <div class="flow-step">
-      <div class="step-num">STEP 01</div>
-      <div class="step-title">無料相談・お問い合わせ</div>
-      <div class="step-body">フォームまたはメールでご連絡ください。1営業日以内にご返信します。</div>
-    </div>
-    <div class="flow-step key-step">
-      <div class="step-num">STEP 02</div>
-      <div class="step-title">デザイン案を無料提示</div>
-      <div class="step-body">ヒアリング後、完成イメージ（デザイン案）を無料でご提示。この時点ではお支払い不要です。</div>
-    </div>
-    <div class="flow-step key-step">
-      <div class="step-num">STEP 03</div>
-      <div class="step-title">ご確認 → お支払い</div>
-      <div class="step-body">デザイン案にご満足いただけたら初めてお支払い。「イメージと違う」を事前に解消します。</div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">STEP 04</div>
-      <div class="step-title">本制作・修正対応</div>
-      <div class="step-body">ご契約後、即制作開始。修正対応も含め丁寧に仕上げます。</div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">STEP 05</div>
-      <div class="step-title">納品・公開</div>
-      <div class="step-body">ファイル納品またはサーバー公開対応。月額費用なしでご利用いただけます。</div>
+  <div class="section-inner">
+    <div class="section-tag">FLOW</div>
+    <h2>ご依頼の流れ</h2>
+    <p class="section-desc">お問い合わせから公開まで、最短即日で完了します。</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">お問い合わせ・無料相談</div>
+          <div class="step-desc">フォームまたはメールよりご連絡ください。ご要望・参考サイトなどをお聞きします。</div>
+        </div>
+      </div>
+      <div class="flow-step key-step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">完成イメージのご提示</div>
+          <div class="step-desc">ヒアリング内容をもとに完成デザインをご提示。この段階ではまだ費用は発生しません。</div>
+        </div>
+      </div>
+      <div class="flow-step key-step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">ご確認・お支払い</div>
+          <div class="step-desc">デザインにご満足いただけた場合のみお支払いへ進みます。「違う」と感じたら費用はゼロです。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title">本制作・修正対応</div>
+          <div class="step-desc">お支払い確認後、本制作を開始。ご要望に応じた修正も無料対応します。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-title">納品・ファイル受け渡し</div>
+          <div class="step-desc">完成したサイトデータをお渡しします。最短即日での納品も可能です。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">06</div>
+        <div>
+          <div class="step-title">完成公開</div>
+          <div class="step-desc">サーバー・ドメインへのアップロード・公開作業もサポートいたします。公開後もお気軽にご相談ください。</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="center">
-  <div class="section-tag">COMPARISON</div>
-  <h2>他社との比較</h2>
-  <p class="lead">SAIZEN WEBは「安心」「速さ」「コスパ」で選ばれています。</p>
-  <div class="comparison-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th class="highlight">SAIZEN WEB</th>
-          <th>格安制作会社</th>
-          <th>大手制作会社</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>LP制作費</td><td class="highlight">¥10,000〜</td><td>¥30,000〜</td><td>¥100,000〜</td></tr>
-        <tr><td>本格HP制作費</td><td class="highlight">¥30,000〜（6Pまで）</td><td>¥50,000〜</td><td>¥300,000〜</td></tr>
-        <tr><td>月額費用</td><td class="highlight">¥0</td><td>¥5,000〜</td><td>¥30,000〜</td></tr>
-        <tr><td>納期目安</td><td class="highlight">最短即日〜1週間</td><td>2〜4週間</td><td>1〜3ヶ月</td></tr>
-        <tr><td>支払前にデザイン確認</td><td class="highlight">✅ あり</td><td>❌ なし</td><td>❌ なし</td></tr>
-        <tr><td>スマホ対応</td><td class="highlight">全プラン標準</td><td>オプション多数</td><td>標準</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="margin-top:14px; font-size:.78rem; color:var(--gray2);">※ 比較内容は一般的な傾向です。</p>
-</section>
-
-<section style="background:var(--gray);">
-  <div class="section-tag center">FAQ</div>
-  <h2 class="center">よくあるご質問</h2>
-  <div class="faq-list">
-    <details>
-      <summary>本当にお支払い前にデザインを見られますか？</summary>
-      <p>はい。ご相談・ヒアリング後、完成イメージ（デザイン案）を無料でご提示します。内容にご満足いただいてから初めてお支払いとなりますので、「思っていたのと違う」というリスクがありません。</p>
-    </details>
-    <details>
-      <summary>即日納品は本当に可能ですか？</summary>
-      <p>素材（テキスト・画像・ロゴ等）が揃っている場合、ご依頼当日の納品が可能です。素材が未確定の場合でも仮素材を使って先に進め、後から差し替えられます。</p>
-    </details>
-    <details>
-      <summary>月額費用は本当にかかりませんか？</summary>
-      <p>制作費のみの買い切りです。ドメイン・サーバーはお客様の実費のみで、当サービスへの月額費用は一切発生しません。</p>
-    </details>
-    <details>
-      <summary>3万円プランの「6ページ」とは何ですか？</summary>
-      <p>トップ・サービス紹介・会社概要・料金・実績・お問い合わせなど、最大6ページまで追加料金なしで制作します。7ページ以上はオプション（別途お見積り）となります。</p>
-    </details>
-    <details>
-      <summary>写真や文章が用意できていなくても大丈夫ですか？</summary>
-      <p>問題ありません。フリー素材や仮テキストを使って先に制作をスタートし、素材が揃い次第差し替える形で進められます。</p>
-    </details>
-    <details>
-      <summary>サーバーやドメインの設定も対応してもらえますか？</summary>
-      <p>はい、別途オプション（有料）にてサーバー・ドメインの取得から公開まで代行いたします。詳しくはご相談ください。</p>
-    </details>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="section-tag">CONTACT</div>
-  <h2>まずは無料でご相談ください</h2>
-  <p class="lead">「何が必要か分からない」「予算内で何ができるか」という段階からOK。<br>1営業日以内にご返信します。</p>
-  <div class="contact-form">
-    <div class="form-group">
-      <label for="name">お名前 <span style="color:#ef4444">*</span></label>
-      <input type="text" id="name" placeholder="山田 太郎" required />
+<!-- COMPARISON -->
+<section>
+  <div class="section-inner">
+    <div class="section-tag">COMPARE</div>
+    <h2>他社との比較</h2>
+    <p class="section-desc">同品質のサービスと比べてみてください。</p>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th class="col-us-h">SAIZEN WEB</th>
+            <th>制作会社</th>
+            <th>フリーランス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LP制作費用</td>
+            <td class="col-us"><strong>¥10,000〜</strong></td>
+            <td>¥100,000〜</td>
+            <td>¥30,000〜</td>
+          </tr>
+          <tr>
+            <td>本格HP制作費用</td>
+            <td class="col-us"><strong>¥30,000〜</strong></td>
+            <td>¥300,000〜</td>
+            <td>¥80,000〜</td>
+          </tr>
+          <tr>
+            <td>納品スピード</td>
+            <td class="col-us"><strong>最短即日</strong></td>
+            <td>1〜2ヶ月</td>
+            <td>1〜3週間</td>
+          </tr>
+          <tr>
+            <td>月額費用</td>
+            <td class="col-us"><strong class="check">¥0</strong></td>
+            <td class="cross">¥5,000〜</td>
+            <td class="cross">場合あり</td>
+          </tr>
+          <tr>
+            <td>完成前に確認可能</td>
+            <td class="col-us"><span class="check">✓</span></td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+          </tr>
+          <tr>
+            <td>スマホ対応</td>
+            <td class="col-us"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="form-group">
-      <label for="email">メールアドレス <span style="color:#ef4444">*</span></label>
-      <input type="email" id="email" placeholder="example@email.com" required />
-    </div>
-    <div class="form-group">
-      <label for="plan">ご希望のプラン</label>
-      <select id="plan">
-        <option value="">選択してください</option>
-        <option value="lp">LP制作（¥10,000〜）</option>
-        <option value="standard">本格ホームページ（¥30,000〜）</option>
-        <option value="other">その他・未定</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="message">ご相談内容（任意）</label>
-      <textarea id="message" placeholder="業種・ご要望・ご不明点などお気軽にどうぞ"></textarea>
-    </div>
-    <button type="button" class="form-submit" onclick="handleSubmit()">無料で相談する →</button>
-    <p class="form-note">送信後、1営業日以内にメールにてご連絡いたします。</p>
   </div>
 </section>
 
+<!-- FAQ -->
+<section style="background: var(--bg-light);">
+  <div class="section-inner">
+    <div class="section-tag">FAQ</div>
+    <h2>よくある質問</h2>
+    <p class="section-desc">お気軽にお問い合わせください。</p>
+    <div class="faq-list">
+      <details>
+        <summary>完成イメージを確認してからお支払いとは？</summary>
+        <div class="faq-answer">ご依頼後、実際の完成デザインをお見せしてから初めてお支払いいただく仕組みです。「イメージと違った」という状況を防ぎ、ご満足いただけない場合は費用は一切発生しません。</div>
+      </details>
+      <details>
+        <summary>本当に即日納品できますか？</summary>
+        <div class="faq-answer">はい。ご依頼内容やボリュームによりますが、シンプルなLPであれば最短当日中に完成イメージをご提示できます。お急ぎの場合はその旨ご連絡ください。</div>
+      </details>
+      <details>
+        <summary>月額費用は本当にかかりませんか？</summary>
+        <div class="faq-answer">制作費のみのご請求で、月額・年額などの継続費用は一切いただきません。ただし、ドメイン・サーバー費用はお客様ご自身でのご負担となります（年間数千円程度）。</div>
+      </details>
+      <details>
+        <summary>修正はどこまで対応してもらえますか？</summary>
+        <div class="faq-answer">LPプランは1回、本格HPプランは2回まで無料で修正対応します。それ以上の修正や大幅な変更の場合は別途ご相談となります。</div>
+      </details>
+      <details>
+        <summary>WordPressでの制作は可能ですか？</summary>
+        <div class="faq-answer">はい、対応可能です。WordPress制作の場合は別途お見積りとなりますので、ご相談ください。</div>
+      </details>
+      <details>
+        <summary>公開後のサポートはありますか？</summary>
+        <div class="faq-answer">納品後もメールにてご相談を受け付けております。内容によって有償対応となる場合がありますが、まずはお気軽にご連絡ください。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="section-inner">
+    <div class="section-tag" style="background:rgba(249,115,22,0.2); color:var(--accent-light);">CONTACT</div>
+    <h2>無料相談・お問い合わせ</h2>
+    <p class="section-desc">まずはお気軽にご連絡ください。最短即日でご返信します。</p>
+    <form class="contact-form" action="mailto:info@saizen.one" method="get" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="お名前" placeholder="山田 太郎" required />
+      </div>
+      <div class="form-group">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="メールアドレス" placeholder="example@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="plan">ご希望プラン</label>
+        <select id="plan" name="プラン">
+          <option value="">選択してください</option>
+          <option value="lp">LP（¥10,000）</option>
+          <option value="hp">本格HP（¥30,000）</option>
+          <option value="other">その他・未定</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">ご要望・参考サイトなど</label>
+        <textarea id="message" name="内容" placeholder="どんなサイトを作りたいか、参考サイトのURLなどをお書きください。"></textarea>
+      </div>
+      <button type="submit" class="form-submit">送信する（無料）</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="index.html" class="footer-logo">
-      <img src="logo-01a.png" alt="SAIZEN WEB" />
-      SAIZEN <span>WEB</span>
-    </a>
+    <a href="index.html" class="footer-logo">SAIZEN <span>WEB</span></a>
+    <p class="footer-tagline">低価格・即日納品のホームページ制作サービス</p>
     <div class="footer-links">
       <a href="company.html">運営会社</a>
       <a href="privacy.html">プライバシーポリシー</a>
       <a href="mailto:info@saizen.one">info@saizen.one</a>
     </div>
+    <p class="footer-copy">© 2026 SAIZEN WEB. All rights reserved.</p>
   </div>
-  <div class="footer-copy">© 2026 SAIZEN WEB All rights reserved.</div>
 </footer>
 
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-    });
-  });
-  function handleSubmit() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    if (!name || !email) { alert('お名前とメールアドレスをご入力ください。'); return; }
-    alert('お問い合わせありがとうございます！\n1営業日以内にご返信いたします。');
-  }
-</script>
 </body>
 </html>
