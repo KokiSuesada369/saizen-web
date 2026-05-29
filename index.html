@@ -46,12 +46,17 @@
       color: var(--white); text-align: center;
       padding: 80px 24px 100px;
     }
+    /* Hero badges row */
+    .hero-badges {
+      display: flex; justify-content: center; gap: 8px;
+      flex-wrap: wrap; margin-bottom: 24px;
+    }
     .hero-badge {
       display: inline-block;
       background: rgba(249,115,22,0.15); border: 1px solid var(--accent);
       color: var(--accent); font-size: 0.8rem; font-weight: 700;
-      padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
-      letter-spacing: 0.08em;
+      padding: 4px 14px; border-radius: 20px;
+      letter-spacing: 0.06em;
     }
     .hero h1 {
       font-size: clamp(1.8rem, 5vw, 3rem);
@@ -77,7 +82,9 @@
     }
     .hero-trust .trust-main span { color: var(--accent); }
     .hero-trust .trust-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
-    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-btns {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
     .btn-primary {
       background: var(--accent); color: var(--white);
       padding: 14px 32px; border-radius: 8px;
@@ -229,8 +236,23 @@
     .footer-links a:hover { color: var(--accent); }
     .footer-copy { font-size: 0.78rem; color: var(--gray3); }
 
+    /* MOBILE */
     @media (max-width: 600px) {
-      nav { padding: 0 16px; }
+      nav { padding: 0 12px; height: 44px; }
+      .nav-logo { font-size: 1rem; }
+      .nav-cta { padding: 6px 12px; font-size: 0.78rem; }
+
+      .hero { padding: 48px 16px 64px; }
+      .hero-badges { gap: 6px; }
+      .hero-badge { font-size: 0.72rem; padding: 3px 10px; }
+
+      .hero-btns { flex-direction: row; gap: 8px; }
+      .btn-primary, .btn-secondary {
+        flex: 0 0 auto;
+        width: auto;
+        padding: 11px 18px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -244,7 +266,11 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">✦ ホームページ制作サービス</div>
+  <div class="hero-badges">
+    <span class="hero-badge">⚡ 最短即日</span>
+    <span class="hero-badge">✓ 確認後入金</span>
+    <span class="hero-badge">💴 最安値水準</span>
+  </div>
   <h1>ホームページが<em>¥10,000〜</em><br>即日で完成します</h1>
   <p class="hero-sub">LP・コーポレートサイト・ランディングページ対応</p>
   <div class="hero-trust">
