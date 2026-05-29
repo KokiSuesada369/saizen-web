@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="logo-01b.png" />
   <meta name="description" content="LP¥10,000・本格HP¥30,000、最短即日納品。完成イメージを確認してからお支払い。思っていたのと違うがゼロ。追加月額費用なし。" />
   <meta name="google-site-verification" content="EnOnIbT9_A7jWmRxD4BfxT0YMKQeYg5WQhiEMHnbRBo" />
-  <!-- Google tag (gtag.js) - GA4 -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEX7QK9N7B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -52,206 +52,350 @@
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, #0d0d1a 0%, #1a0a00 50%, #0d0d1a 100%);
-      color: var(--white); text-align: center;
-      padding: 80px 24px 100px;
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a1a3e 50%, #0d1f3a 100%);
+      color: var(--white); padding: 80px 24px 100px; text-align: center;
     }
-    .hero-badges {
-      display: flex; justify-content: center; gap: 8px;
-      flex-wrap: wrap; margin-bottom: 24px;
+    .hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+    .badge {
+      background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.4);
+      color: var(--accent-light); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
     }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(249,115,22,0.15); border: 1px solid var(--accent);
-      color: var(--accent); font-size: 0.8rem; font-weight: 700;
-      padding: 4px 14px; border-radius: 20px;
-      letter-spacing: 0.06em;
-    }
-    .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 900; line-height: 1.3; margin-bottom: 16px;
-    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.25; margin-bottom: 12px; }
     .hero h1 em { font-style: normal; color: var(--accent); }
-    .hero-sub {
-      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-      color: rgba(255,255,255,0.75); margin-bottom: 12px;
+    .hero-sub { font-size: 1rem; color: var(--gray3); margin-bottom: 8px; }
+    .hero-promise {
+      display: inline-block; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 8px;
+      padding: 10px 20px; margin: 20px 0 32px; font-size: 0.9rem; color: rgba(255,255,255,0.85);
     }
-    .hero-trust {
-      display: inline-block;
-      background: linear-gradient(90deg, rgba(249,115,22,0.2), rgba(249,115,22,0.1));
-      border: 2px solid var(--accent);
-      border-radius: 12px;
-      padding: 14px 28px;
-      margin: 16px auto 32px;
-      max-width: 520px;
-    }
-    .hero-trust .trust-main {
-      font-size: clamp(1rem, 3vw, 1.25rem);
-      font-weight: 900; color: var(--white); margin-bottom: 4px;
-    }
-    .hero-trust .trust-main span { color: var(--accent); }
-    .hero-trust .trust-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
-    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-promise strong { color: var(--accent-light); }
+    .hero-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
     .btn-primary {
       background: var(--accent); color: var(--white);
-      padding: 14px 32px; border-radius: 8px;
-      font-size: 1rem; font-weight: 800;
-      transition: transform 0.2s, opacity 0.2s;
+      padding: 14px 28px; border-radius: 8px; font-size: 0.95rem; font-weight: 700;
+      transition: background 0.2s; box-shadow: 0 4px 16px rgba(249,115,22,0.35);
     }
-    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn-primary:hover { background: var(--accent-dark); }
     .btn-secondary {
       background: transparent; color: var(--white);
-      border: 2px solid rgba(255,255,255,0.4);
-      padding: 14px 32px; border-radius: 8px;
-      font-size: 1rem; font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 14px 28px; border-radius: 8px; font-size: 0.95rem; font-weight: 600;
       transition: border-color 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--white); }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.6); }
 
     /* SECTIONS */
-    section { padding: 80px 24px; }
-    .section-inner { max-width: 900px; margin: 0 auto; }
-    .section-tag {
-      display: inline-block;
-      background: rgba(249,115,22,0.1); color: var(--accent);
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
-      padding: 3px 12px; border-radius: 20px; margin-bottom: 10px;
-    }
-    h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 900; margin-bottom: 8px; }
-    .section-desc { color: var(--gray2); margin-bottom: 48px; font-size: 0.95rem; }
+    .section { padding: 80px 24px; }
+    .section.bg-light { background: var(--bg-light); }
+    .container { max-width: 960px; margin: 0 auto; }
+    .section-label { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+    .section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px; }
+    .section-sub { color: var(--gray2); font-size: 0.95rem; margin-bottom: 48px; }
 
     /* PRICING */
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .plan-card {
-      border: 2px solid var(--border); border-radius: 16px;
-      padding: 32px 28px; position: relative; background: var(--white);
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .plan {
+      border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px;
+      position: relative; transition: box-shadow 0.2s;
     }
-    .plan-card.featured { border-color: var(--accent); }
-    .plan-badge-top {
+    .plan:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .plan.popular { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(249,115,22,0.15); }
+    .popular-badge {
       position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
       background: var(--accent); color: var(--white);
-      font-size: 0.75rem; font-weight: 800; padding: 4px 16px; border-radius: 20px;
-      white-space: nowrap;
+      font-size: 0.72rem; font-weight: 700; padding: 4px 14px; border-radius: 20px;
     }
-    .plan-name { font-size: 0.85rem; font-weight: 700; color: var(--gray2); margin-bottom: 6px; }
-    .plan-price { font-size: 2.4rem; font-weight: 900; color: var(--black); line-height: 1; }
-    .plan-price span { font-size: 1rem; color: var(--gray2); font-weight: 400; }
-    .plan-desc { font-size: 0.85rem; color: var(--gray2); margin: 10px 0 20px; }
+    .plan-name { font-size: 0.85rem; font-weight: 600; color: var(--gray2); margin-bottom: 8px; }
+    .plan-price { font-size: 2.4rem; font-weight: 900; color: var(--black); margin-bottom: 4px; }
+    .plan-price span { font-size: 0.9rem; font-weight: 500; color: var(--gray2); }
+    .plan-desc { font-size: 0.88rem; color: var(--gray2); margin-bottom: 24px; }
     .plan-features { list-style: none; }
-    .plan-features li { padding: 7px 0; font-size: 0.9rem; border-bottom: 1px solid var(--border); color: var(--black); }
-    .plan-features li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+    .plan-features li { font-size: 0.88rem; padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; }
+    .plan-features li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
 
     /* REASONS */
-    .reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .reasons { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .reason {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px;
+      background: var(--bg-light); border-radius: 12px; padding: 28px 24px;
     }
-    .reason.highlight-reason {
-      background: #1c0f00; border-color: var(--accent); border-width: 2px;
-    }
-    .reason-num { font-size: 0.75rem; font-weight: 700; color: var(--gray3); margin-bottom: 6px; }
-    .highlight-reason .reason-num { color: var(--accent-light); }
-    .reason h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; color: var(--black); }
-    .highlight-reason h3 { color: #fb923c; }
-    .reason p { font-size: 0.85rem; color: var(--gray2); line-height: 1.6; }
-    .highlight-reason p { color: #fed7aa; }
+    .reason-num { font-size: 0.72rem; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 8px; }
+    .reason h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--black); }
+    .reason p { font-size: 0.88rem; color: var(--gray2); line-height: 1.7; }
 
     /* FLOW */
-    .flow { background: var(--bg-light); }
-    .flow-steps { display: flex; flex-direction: column; gap: 0; }
-    .flow-step {
-      display: flex; align-items: flex-start; gap: 20px;
-      background: var(--white); border: 1px solid var(--border);
-      border-right: 4px solid var(--border);
-      border-radius: 12px; padding: 24px; margin-bottom: 12px;
-    }
-    .flow-step.key-step { background: #fff7ed; border-right-color: var(--accent-light); }
+    .flow-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .flow-step { text-align: center; padding: 24px 16px; }
     .step-num {
-      min-width: 44px; height: 44px; border-radius: 50%;
-      background: var(--black); color: var(--white);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent); color: var(--white);
+      font-size: 1rem; font-weight: 800;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; font-weight: 800;
+      margin: 0 auto 16px;
     }
-    .key-step .step-num { background: var(--accent); }
-    .step-title { font-size: 1rem; font-weight: 800; margin-bottom: 4px; color: var(--black); }
-    .key-step .step-title { color: var(--accent-dark); }
-    .step-desc { font-size: 0.85rem; color: var(--gray2); }
+    .flow-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .flow-step p { font-size: 0.83rem; color: var(--gray2); }
 
-    /* COMPARISON */
+    /* COMPARE */
     .compare-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .compare-table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 0.9rem; }
-    .compare-table th, .compare-table td {
-      padding: 14px 16px; text-align: center;
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
+    .compare-table th, .compare-table td { padding: 12px 16px; border: 1px solid var(--border); text-align: center; }
     .compare-table th { background: var(--black); color: var(--white); font-weight: 700; }
-    .compare-table td { color: var(--black); }
+    .compare-table th:first-child { background: var(--black); }
+    .compare-table td:nth-child(2) { background: rgba(249,115,22,0.05); font-weight: 700; color: var(--accent-dark); }
     .compare-table tr:nth-child(even) td { background: var(--bg-light); }
+    .compare-table tr:nth-child(even) td:nth-child(2) { background: rgba(249,115,22,0.08); }
     .compare-table th:first-child, .compare-table td:first-child {
       text-align: left; font-weight: 600;
       position: sticky; left: 0; z-index: 1;
       background: var(--white); border-right: 1px solid var(--border);
     }
-    .compare-table th:first-child { background: var(--black); color: var(--white); z-index: 2; }
+    .compare-table th:first-child { background: var(--black); color: var(--white); }
     .compare-table tr:nth-child(even) td:first-child { background: var(--bg-light); }
-    .check { color: var(--accent); font-weight: 900; font-size: 1.1rem; }
-    .cross { color: var(--gray3); }
-    .col-us { background: rgba(249,115,22,0.06) !important; }
-    .col-us-h { background: var(--accent) !important; color: var(--white) !important; }
+
+    /* ===== WORKS ===== */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 32px;
+    }
+    .work-card {
+      border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .work-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+    /* browser frame */
+    .browser-frame { background: #e8eaed; }
+    .browser-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 12px; background: #dde0e4;
+      border-bottom: 1px solid #c8ccd0;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot:nth-child(1) { background: #ff5f57; }
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #28c840; }
+    .browser-url {
+      flex: 1; background: var(--white); border-radius: 4px;
+      font-size: 0.72rem; color: var(--gray2); padding: 3px 10px;
+      margin-left: 8px; max-width: 260px;
+    }
+    .browser-content { height: 220px; overflow: hidden; position: relative; }
+
+    /* mockup: saizen.one */
+    .mock-saizen {
+      background: linear-gradient(160deg, #0d1b3e 0%, #0a2456 60%, #061630 100%);
+    }
+    .mock-saizen .m-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 14px; background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mock-saizen .m-logo { display: flex; align-items: center; gap: 6px; }
+    .mock-saizen .m-logo img { height: 22px; }
+    .mock-saizen .m-nav-links { display: flex; gap: 10px; }
+    .mock-saizen .m-nav-links span { font-size: 0.5rem; color: rgba(255,255,255,0.7); }
+    .mock-saizen .m-hero { padding: 22px 14px 16px; }
+    .mock-saizen .m-badge {
+      display: inline-block; background: rgba(255,193,7,0.2); border: 1px solid rgba(255,193,7,0.4);
+      color: #ffd54f; font-size: 0.45rem; padding: 2px 7px; border-radius: 10px; margin-bottom: 8px;
+    }
+    .mock-saizen .m-h1 { font-size: 1.1rem; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+    .mock-saizen .m-sub { font-size: 0.45rem; color: rgba(255,255,255,0.65); margin-bottom: 10px; line-height: 1.5; }
+    .mock-saizen .m-btns { display: flex; gap: 6px; }
+    .mock-saizen .m-btn1 {
+      background: #f97316; color: #fff; font-size: 0.45rem; padding: 4px 10px;
+      border-radius: 4px; font-weight: 700;
+    }
+    .mock-saizen .m-btn2 {
+      background: transparent; color: #fff; font-size: 0.45rem; padding: 4px 10px;
+      border-radius: 4px; border: 1px solid rgba(255,255,255,0.3);
+    }
+    .mock-saizen .m-stats {
+      display: flex; gap: 8px; padding: 8px 14px;
+      background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.07);
+      position: absolute; bottom: 0; left: 0; right: 0;
+    }
+    .mock-saizen .m-stat { text-align: center; flex: 1; }
+    .mock-saizen .m-stat-num { font-size: 0.75rem; font-weight: 900; color: #f97316; }
+    .mock-saizen .m-stat-label { font-size: 0.38rem; color: rgba(255,255,255,0.5); }
+
+    /* mockup: keibei-matching */
+    .mock-keibei { background: #f8faff; }
+    .mock-keibei .m-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 14px; background: #fff; border-bottom: 1px solid #e5e7eb;
+    }
+    .mock-keibei .m-logo { font-size: 0.65rem; font-weight: 800; color: #1e40af; }
+    .mock-keibei .m-nav-r { display: flex; gap: 6px; }
+    .mock-keibei .m-login { font-size: 0.42rem; color: #374151; padding: 2px 7px; border: 1px solid #d1d5db; border-radius: 3px; }
+    .mock-keibei .m-reg { font-size: 0.42rem; color: #fff; padding: 2px 7px; background: #1e40af; border-radius: 3px; }
+    .mock-keibei .m-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 60%, #2563eb 100%);
+      padding: 18px 14px 14px; text-align: center;
+    }
+    .mock-keibei .m-hero-tag { font-size: 0.38rem; color: #bfdbfe; margin-bottom: 5px; }
+    .mock-keibei .m-h1 { font-size: 0.82rem; font-weight: 900; color: #fff; line-height: 1.3; margin-bottom: 8px; }
+    .mock-keibei .m-search {
+      background: #fff; border-radius: 6px; padding: 6px 10px;
+      display: flex; gap: 4px; align-items: center;
+    }
+    .mock-keibei .m-sel {
+      flex: 1; font-size: 0.38rem; color: #9ca3af;
+      border: 1px solid #e5e7eb; border-radius: 3px; padding: 2px 4px;
+    }
+    .mock-keibei .m-sbtn {
+      background: #f97316; color: #fff; font-size: 0.38rem;
+      padding: 3px 8px; border-radius: 3px; font-weight: 700;
+    }
+    .mock-keibei .m-stats {
+      display: flex; gap: 12px; padding: 8px 14px; justify-content: center;
+      border-top: 1px solid #e5e7eb; background: #fff;
+      position: absolute; bottom: 0; left: 0; right: 0;
+    }
+    .mock-keibei .m-stat { text-align: center; }
+    .mock-keibei .m-stat-num { font-size: 0.65rem; font-weight: 800; color: #1e40af; }
+    .mock-keibei .m-stat-label { font-size: 0.35rem; color: #6b7280; }
+
+    /* mockup: beauty salon */
+    .mock-salon { background: #fdf6f0; }
+    .mock-salon .m-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 14px; background: #fff; border-bottom: 1px solid #f0e6e0;
+    }
+    .mock-salon .m-logo { font-size: 0.62rem; font-weight: 700; color: #8b4513; letter-spacing: 0.1em; }
+    .mock-salon .m-nav-links { display: flex; gap: 8px; }
+    .mock-salon .m-nav-links span { font-size: 0.4rem; color: #a0522d; }
+    .mock-salon .m-hero {
+      background: linear-gradient(160deg, #f9e4d4 0%, #f5cba7 40%, #e8b48c 100%);
+      padding: 24px 14px 12px; text-align: center; position: relative;
+    }
+    .mock-salon .m-catch { font-size: 0.4rem; letter-spacing: 0.15em; color: #a0522d; margin-bottom: 6px; }
+    .mock-salon .m-h1 { font-size: 0.95rem; font-weight: 900; color: #5c2a0a; line-height: 1.3; margin-bottom: 6px; }
+    .mock-salon .m-sub { font-size: 0.4rem; color: #7a3d1a; margin-bottom: 10px; }
+    .mock-salon .m-btn {
+      display: inline-block; background: #8b4513; color: #fff;
+      font-size: 0.42rem; padding: 5px 14px; border-radius: 20px;
+    }
+    .mock-salon .m-services {
+      display: flex; gap: 6px; padding: 8px 10px;
+      background: #fff; border-top: 1px solid #f0e6e0;
+      position: absolute; bottom: 0; left: 0; right: 0;
+    }
+    .mock-salon .m-svc {
+      flex: 1; text-align: center; padding: 4px;
+      background: #fdf6f0; border-radius: 4px; border: 1px solid #f0e6e0;
+    }
+    .mock-salon .m-svc-icon { font-size: 0.7rem; }
+    .mock-salon .m-svc-name { font-size: 0.33rem; color: #8b4513; font-weight: 600; }
+
+    /* mockup: company HP */
+    .mock-corp { background: #f4f7fb; }
+    .mock-corp .m-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 14px; background: #fff; border-bottom: 1px solid #e0e7ef;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .mock-corp .m-logo { font-size: 0.65rem; font-weight: 800; color: #1a3a5c; letter-spacing: 0.05em; }
+    .mock-corp .m-logo span { color: #2563eb; }
+    .mock-corp .m-nav-links { display: flex; gap: 8px; }
+    .mock-corp .m-nav-links span { font-size: 0.4rem; color: #374151; }
+    .mock-corp .m-hero {
+      background: linear-gradient(120deg, #1a3a5c 0%, #1e4d7b 50%, #2563eb 100%);
+      padding: 22px 14px 14px;
+    }
+    .mock-corp .m-tag { font-size: 0.38rem; color: #93c5fd; margin-bottom: 6px; }
+    .mock-corp .m-h1 { font-size: 0.88rem; font-weight: 900; color: #fff; line-height: 1.3; margin-bottom: 6px; }
+    .mock-corp .m-sub { font-size: 0.4rem; color: rgba(255,255,255,0.7); margin-bottom: 10px; line-height: 1.5; }
+    .mock-corp .m-btns { display: flex; gap: 6px; }
+    .mock-corp .m-btn1 { background: #2563eb; color: #fff; font-size: 0.42rem; padding: 4px 10px; border-radius: 4px; font-weight: 700; }
+    .mock-corp .m-btn2 { background: transparent; color: #fff; font-size: 0.42rem; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.35); }
+    .mock-corp .m-cards {
+      display: flex; gap: 6px; padding: 8px 10px;
+      background: #fff;
+      position: absolute; bottom: 0; left: 0; right: 0;
+    }
+    .mock-corp .m-card {
+      flex: 1; padding: 5px 6px; background: #f4f7fb;
+      border-radius: 4px; border: 1px solid #e0e7ef;
+    }
+    .mock-corp .m-card-icon { font-size: 0.65rem; }
+    .mock-corp .m-card-label { font-size: 0.32rem; color: #374151; font-weight: 600; }
+
+    /* work info */
+    .work-info { padding: 20px 22px 22px; }
+    .work-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .work-tag {
+      font-size: 0.72rem; padding: 2px 10px; border-radius: 12px;
+      background: var(--bg-light); color: var(--gray2); border: 1px solid var(--border);
+    }
+    .work-tag.tag-plan { background: rgba(249,115,22,0.1); color: var(--accent-dark); border-color: rgba(249,115,22,0.3); }
+    .work-tag.tag-sample { background: rgba(99,102,241,0.1); color: #4f46e5; border-color: rgba(99,102,241,0.3); }
+    .work-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .work-info p { font-size: 0.85rem; color: var(--gray2); margin-bottom: 14px; line-height: 1.6; }
+    .work-link { font-size: 0.83rem; font-weight: 700; color: var(--accent); }
+    .work-link:hover { text-decoration: underline; }
+    .work-sample-note {
+      display: inline-block; font-size: 0.72rem; color: var(--gray3);
+      background: var(--bg-light); padding: 2px 10px; border-radius: 10px;
+    }
 
     /* FAQ */
-    .faq-list { display: flex; flex-direction: column; gap: 12px; }
-    details { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-    summary {
-      padding: 18px 20px; font-weight: 700; cursor: pointer; color: var(--black);
-      list-style: none; display: flex; justify-content: space-between; align-items: center;
+    .faq-list { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-q {
+      padding: 18px 20px; font-weight: 700; font-size: 0.92rem;
+      background: var(--bg-light); cursor: pointer;
+      display: flex; justify-content: space-between; gap: 12px;
     }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; font-size: 1.2rem; color: var(--accent); }
-    details[open] summary::after { content: "−"; }
-    .faq-answer { padding: 0 20px 18px; color: var(--gray2); font-size: 0.9rem; line-height: 1.8; }
+    .faq-q::after { content: "+"; font-size: 1.2rem; color: var(--accent); flex-shrink: 0; }
+    .faq-a { padding: 16px 20px; font-size: 0.88rem; color: var(--gray2); line-height: 1.8; }
 
     /* CONTACT */
-    .contact { background: var(--black); color: var(--white); text-align: center; }
-    .contact h2 { color: var(--white); margin-bottom: 12px; }
-    .contact .section-desc { color: rgba(255,255,255,0.6); }
-    .contact-form { max-width: 560px; margin: 0 auto; text-align: left; }
-    .form-group { margin-bottom: 18px; }
-    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: rgba(255,255,255,0.8); }
-    input, textarea, select {
-      width: 100%; padding: 12px 14px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px; color: var(--white); font-size: 0.95rem;
-      font-family: inherit; transition: border-color 0.2s;
+    .contact-section {
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a1a3e 100%);
+      padding: 80px 24px; color: var(--white);
     }
-    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); }
-    textarea { min-height: 120px; resize: vertical; }
-    select option { background: var(--black); }
+    .contact-section .section-label { color: var(--accent-light); }
+    .contact-section h2 { color: var(--white); }
+    .contact-section .section-sub { color: var(--gray3); }
+    .contact-form { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.85); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white); border-radius: 8px; padding: 12px 14px; font-size: 0.92rem;
+      outline: none; transition: border-color 0.2s;
+      font-family: inherit;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-group select option { background: #1a1a3e; color: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
     .form-submit {
-      width: 100%; background: var(--accent); color: var(--white);
-      border: none; padding: 15px; border-radius: 8px;
-      font-size: 1rem; font-weight: 800; cursor: pointer; transition: opacity 0.2s;
+      background: var(--accent); color: var(--white); border: none;
+      padding: 15px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; box-shadow: 0 4px 16px rgba(249,115,22,0.35);
     }
-    .form-submit:hover { opacity: 0.85; }
+    .form-submit:hover { background: var(--accent-dark); }
     .form-success {
-      display: none; background: rgba(249,115,22,0.15); border: 1px solid var(--accent);
-      border-radius: 8px; padding: 16px; text-align: center;
-      color: var(--accent-light); font-weight: 700; margin-top: 16px;
+      display: none; text-align: center; padding: 20px;
+      background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 8px; color: #86efac; font-weight: 600;
     }
 
     /* FOOTER */
     footer {
-      background: var(--white); color: var(--gray2);
-      border-top: 1px solid var(--border); padding: 40px 24px 24px;
+      background: var(--white); border-top: 1px solid var(--border);
+      padding: 40px 24px 24px; text-align: center;
     }
-    .footer-inner { max-width: 900px; margin: 0 auto; }
-    .footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--black); display: inline-block; margin-bottom: 8px; }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.05em; margin-bottom: 8px; }
     .footer-logo span { color: var(--accent); }
-    .footer-tagline { font-size: 0.82rem; color: var(--gray2); margin-bottom: 20px; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.82rem; margin-bottom: 20px; }
-    .footer-links a { color: var(--gray2); }
+    .footer-desc { font-size: 0.82rem; color: var(--gray2); margin-bottom: 20px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+    .footer-links a { font-size: 0.82rem; color: var(--gray2); }
     .footer-links a:hover { color: var(--accent); }
     .footer-copy { font-size: 0.78rem; color: var(--gray3); }
 
@@ -261,14 +405,9 @@
       .nav-logo { font-size: 1rem; }
       .nav-cta { padding: 6px 12px; font-size: 0.78rem; }
       .hero { padding: 48px 16px 64px; }
-      .hero-badges { gap: 6px; }
-      .hero-badge { font-size: 0.72rem; padding: 3px 10px; }
       .hero-btns { flex-direction: row; gap: 8px; }
-      .btn-primary, .btn-secondary {
-        flex: 0 0 auto; width: auto;
-        padding: 11px 18px; font-size: 0.85rem;
-      }
-      .compare-table th, .compare-table td { padding: 10px 12px; font-size: 0.82rem; }
+      .btn-primary, .btn-secondary { flex: 0 0 auto; width: auto; padding: 11px 18px; font-size: 0.85rem; }
+      .works-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -283,15 +422,15 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badges">
-    <span class="hero-badge">⚡ 最短即日</span>
-    <span class="hero-badge">✓ 確認後入金</span>
-    <span class="hero-badge">💴 最安値水準</span>
+    <span class="badge">⚡ 最短即日</span>
+    <span class="badge">✓ 確認後入金</span>
+    <span class="badge">💴 最安値水準</span>
   </div>
   <h1>ホームページが<em>¥10,000〜</em><br>即日で完成します</h1>
   <p class="hero-sub">LP・コーポレートサイト・ランディングページ対応</p>
-  <div class="hero-trust">
-    <div class="trust-main">完成イメージを確認して<span>から</span>お支払い</div>
-    <div class="trust-sub">「思っていたのと違う」がゼロ。納得できなければ費用はかかりません。</div>
+  <div class="hero-promise">
+    完成イメージを確認してからお支払い<br>
+    <strong>「思っていたのと違う」がゼロ。</strong>納得できなければ費用はかかりません。
   </div>
   <div class="hero-btns">
     <a href="#contact" class="btn-primary">今すぐ無料相談する</a>
@@ -300,16 +439,16 @@
 </section>
 
 <!-- PRICING -->
-<section id="pricing">
-  <div class="section-inner">
-    <div class="section-tag">PRICING</div>
+<section id="pricing" class="section">
+  <div class="container">
+    <p class="section-label">PRICING</p>
     <h2>シンプルな料金プラン</h2>
-    <p class="section-desc">月額費用・隠れた追加費用は一切なし。</p>
-    <div class="pricing-grid">
-      <div class="plan-card">
-        <div class="plan-name">ランディングページ</div>
-        <div class="plan-price">¥10,000<span>（税込）</span></div>
-        <div class="plan-desc">1ページ完結型。集客・告知に最適。</div>
+    <p class="section-sub">月額費用・隠れた追加費用は一切なし。</p>
+    <div class="plans">
+      <div class="plan">
+        <p class="plan-name">ランディングページ</p>
+        <p class="plan-price">¥10,000<span>（税込）</span></p>
+        <p class="plan-desc">1ページ完結型。集客・告知に最適。</p>
         <ul class="plan-features">
           <li>1ページLP</li>
           <li>レスポンシブ対応（PC・スマホ）</li>
@@ -319,11 +458,11 @@
           <li>GA4タグ設置済み</li>
         </ul>
       </div>
-      <div class="plan-card featured">
-        <div class="plan-badge-top">人気プラン</div>
-        <div class="plan-name">本格ホームページ</div>
-        <div class="plan-price">¥30,000<span>（税込）</span></div>
-        <div class="plan-desc">最大6ページまで追加料金なし。</div>
+      <div class="plan popular">
+        <span class="popular-badge">人気プラン</span>
+        <p class="plan-name">本格ホームページ</p>
+        <p class="plan-price">¥30,000<span>（税込）</span></p>
+        <p class="plan-desc">最大6ページまで追加料金なし。</p>
         <ul class="plan-features">
           <li>最大6ページ（追加料金なし）</li>
           <li>レスポンシブ対応（PC・スマホ）</li>
@@ -338,39 +477,39 @@
 </section>
 
 <!-- REASONS -->
-<section style="background: var(--black); color: var(--white);">
-  <div class="section-inner">
-    <div class="section-tag">WHY US</div>
-    <h2 style="color:var(--white);">選ばれる6つの理由</h2>
-    <p class="section-desc" style="color:rgba(255,255,255,0.6)">他社との違いをご確認ください。</p>
-    <div class="reasons-grid">
-      <div class="reason highlight-reason">
-        <div class="reason-num">#01</div>
+<section id="why" class="section bg-light">
+  <div class="container">
+    <p class="section-label">WHY US</p>
+    <h2>選ばれる6つの理由</h2>
+    <p class="section-sub">他社との違いをご確認ください。</p>
+    <div class="reasons">
+      <div class="reason">
+        <p class="reason-num">#01</p>
         <h3>完成イメージを確認後にお支払い</h3>
         <p>完成イメージをご確認いただき、納得された場合のみお支払いへ進みます。気に入らなければ費用は一切かかりません。</p>
       </div>
       <div class="reason">
-        <div class="reason-num">#02</div>
+        <p class="reason-num">#02</p>
         <h3>業界最安値水準</h3>
         <p>LP¥10,000・本格HP¥30,000。制作会社や個人フリーランスより圧倒的に低コストで高品質なサイトを提供します。</p>
       </div>
       <div class="reason">
-        <div class="reason-num">#03</div>
+        <p class="reason-num">#03</p>
         <h3>最短即日納品</h3>
         <p>ご依頼から最短当日中に納品。急ぎのキャンペーンや新規開業にも対応します。</p>
       </div>
       <div class="reason">
-        <div class="reason-num">#04</div>
+        <p class="reason-num">#04</p>
         <h3>月額費用ゼロ</h3>
         <p>制作費のみのシンプル料金。維持費・管理費などの継続費用は一切いただきません。</p>
       </div>
       <div class="reason">
-        <div class="reason-num">#05</div>
+        <p class="reason-num">#05</p>
         <h3>スマホ対応（レスポンシブ）</h3>
         <p>PC・スマートフォン・タブレット、あらゆるデバイスで最適に表示されるサイトを制作します。</p>
       </div>
       <div class="reason">
-        <div class="reason-num">#06</div>
+        <p class="reason-num">#06</p>
         <h3>丁寧なヒアリング</h3>
         <p>ご要望を丁寧にお聞きし、ビジネスの目的に合ったデザインをご提案。初めての方でも安心です。</p>
       </div>
@@ -379,179 +518,321 @@
 </section>
 
 <!-- FLOW -->
-<section class="flow">
-  <div class="section-inner">
-    <div class="section-tag">FLOW</div>
+<section id="flow" class="section">
+  <div class="container">
+    <p class="section-label">FLOW</p>
     <h2>ご依頼の流れ</h2>
-    <p class="section-desc">お問い合わせから公開まで、最短即日で完了します。</p>
+    <p class="section-sub">お問い合わせから公開まで、最短即日で完了します。</p>
     <div class="flow-steps">
       <div class="flow-step">
         <div class="step-num">01</div>
-        <div>
-          <div class="step-title">お問い合わせ・無料相談</div>
-          <div class="step-desc">フォームまたはメールよりご連絡ください。ご要望・参考サイトなどをお聞きします。</div>
-        </div>
+        <h3>お問い合わせ・無料相談</h3>
+        <p>フォームまたはメールよりご連絡ください。ご要望・参考サイトなどをお聞きします。</p>
       </div>
-      <div class="flow-step key-step">
+      <div class="flow-step">
         <div class="step-num">02</div>
-        <div>
-          <div class="step-title">完成イメージのご提示</div>
-          <div class="step-desc">ヒアリング内容をもとに完成デザインをご提示。この段階ではまだ費用は発生しません。</div>
-        </div>
+        <h3>完成イメージのご提示</h3>
+        <p>ヒアリング内容をもとに完成デザインをご提示。この段階ではまだ費用は発生しません。</p>
       </div>
-      <div class="flow-step key-step">
+      <div class="flow-step">
         <div class="step-num">03</div>
-        <div>
-          <div class="step-title">ご確認・お支払い</div>
-          <div class="step-desc">完成イメージにご満足いただけた場合のみお支払いへ進みます。気に入らなければ費用はゼロです。</div>
-        </div>
+        <h3>ご確認・お支払い</h3>
+        <p>完成イメージにご満足いただけた場合のみお支払いへ進みます。気に入らなければ費用はゼロです。</p>
       </div>
       <div class="flow-step">
         <div class="step-num">04</div>
-        <div>
-          <div class="step-title">本制作・修正対応</div>
-          <div class="step-desc">お支払い確認後、本制作を開始。ご要望に応じた修正も無料対応します。</div>
-        </div>
+        <h3>本制作・修正対応</h3>
+        <p>お支払い確認後、本制作を開始。ご要望に応じた修正も無料対応します。</p>
       </div>
       <div class="flow-step">
         <div class="step-num">05</div>
-        <div>
-          <div class="step-title">納品・ファイル受け渡し</div>
-          <div class="step-desc">完成したサイトデータをお渡しします。最短即日での納品も可能です。</div>
-        </div>
+        <h3>納品・ファイル受け渡し</h3>
+        <p>完成したサイトデータをお渡しします。最短即日での納品も可能です。</p>
       </div>
       <div class="flow-step">
         <div class="step-num">06</div>
-        <div>
-          <div class="step-title">完成公開</div>
-          <div class="step-desc">サーバー・ドメインへのアップロード・公開作業もサポートいたします。公開後もお気軽にご相談ください。</div>
-        </div>
+        <h3>完成公開</h3>
+        <p>サーバー・ドメインへのアップロード・公開作業もサポートいたします。公開後もお気軽にご相談ください。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section>
-  <div class="section-inner">
-    <div class="section-tag">COMPARE</div>
+<!-- COMPARE -->
+<section id="compare" class="section bg-light">
+  <div class="container">
+    <p class="section-label">COMPARE</p>
     <h2>他社との比較</h2>
-    <p class="section-desc">同品質のサービスと比べてみてください。</p>
+    <p class="section-sub">同品質のサービスと比べてみてください。</p>
     <div class="compare-wrapper">
       <table class="compare-table">
         <thead>
           <tr>
             <th>比較項目</th>
-            <th class="col-us-h">SAIZEN WEB</th>
+            <th>SAIZEN WEB</th>
             <th>制作会社</th>
             <th>フリーランス</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>LP制作費用</td>
-            <td class="col-us"><strong>¥10,000〜</strong></td>
-            <td>¥100,000〜</td>
-            <td>¥30,000〜</td>
-          </tr>
-          <tr>
-            <td>本格HP制作費用</td>
-            <td class="col-us"><strong>¥30,000〜</strong></td>
-            <td>¥300,000〜</td>
-            <td>¥80,000〜</td>
-          </tr>
-          <tr>
-            <td>納品スピード</td>
-            <td class="col-us"><strong>最短即日</strong></td>
-            <td>1〜2ヶ月</td>
-            <td>1〜3週間</td>
-          </tr>
-          <tr>
-            <td>月額費用</td>
-            <td class="col-us"><strong class="check">¥0</strong></td>
-            <td class="cross">¥5,000〜</td>
-            <td class="cross">場合あり</td>
-          </tr>
-          <tr>
-            <td>完成前に確認可能</td>
-            <td class="col-us"><span class="check">✓</span></td>
-            <td class="cross">✗</td>
-            <td class="cross">✗</td>
-          </tr>
-          <tr>
-            <td>スマホ対応</td>
-            <td class="col-us"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
+          <tr><td>LP制作費用</td><td><strong>¥10,000〜</strong></td><td>¥100,000〜</td><td>¥30,000〜</td></tr>
+          <tr><td>本格HP制作費用</td><td><strong>¥30,000〜</strong></td><td>¥300,000〜</td><td>¥80,000〜</td></tr>
+          <tr><td>納品スピード</td><td><strong>最短即日</strong></td><td>1〜2ヶ月</td><td>1〜3週間</td></tr>
+          <tr><td>月額費用</td><td><strong>¥0</strong></td><td>¥5,000〜</td><td>場合あり</td></tr>
+          <tr><td>完成前に確認可能</td><td>✓</td><td>✗</td><td>✗</td></tr>
+          <tr><td>スマホ対応</td><td>✓</td><td>✓</td><td>✓</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
+<!-- WORKS -->
+<section id="works" class="section">
+  <div class="container">
+    <p class="section-label">WORKS</p>
+    <h2>制作実績・参考サイト</h2>
+    <p class="section-sub">実際に制作・納品したサイトをご覧ください。</p>
+    <div class="works-grid">
+
+      <!-- 1: saizen.one -->
+      <div class="work-card">
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="browser-url">saizen.one</span>
+          </div>
+          <div class="browser-content mock-saizen">
+            <div class="m-nav">
+              <div class="m-logo">
+                <svg width="80" height="18" viewBox="0 0 80 18" fill="none">
+                  <text x="0" y="14" font-size="10" font-weight="800" fill="white" font-family="sans-serif">SAIZEN警備保障</text>
+                </svg>
+              </div>
+              <div class="m-nav-links">
+                <span>ホーム</span><span>会社概要</span><span>サービス</span><span>採用</span>
+              </div>
+            </div>
+            <div class="m-hero">
+              <div class="m-badge">広島県公安委員会認定 第73000768号</div>
+              <div class="m-h1">広島を、守る。</div>
+              <div class="m-sub">広島の警備会社として、地域に根ざした誠実な警備で<br>人・街・現場の安全をお守りします。</div>
+              <div class="m-btns">
+                <span class="m-btn1">無料で見積もりする</span>
+                <span class="m-btn2">警備を依頼する</span>
+              </div>
+            </div>
+            <div class="m-stats">
+              <div class="m-stat"><div class="m-stat-num">24</div><div class="m-stat-label">時間対応</div></div>
+              <div class="m-stat"><div class="m-stat-num">365</div><div class="m-stat-label">日稼働</div></div>
+              <div class="m-stat"><div class="m-stat-num">全域</div><div class="m-stat-label">広島県内</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="work-tags">
+            <span class="work-tag">コーポレートサイト</span>
+            <span class="work-tag tag-plan">本格HP</span>
+            <span class="work-tag">警備業</span>
+          </div>
+          <h3>SAIZEN警備保障株式会社</h3>
+          <p>広島の警備会社コーポレートサイト。会社概要・サービス・料金・採用・ブログ機能を含む多ページ構成。</p>
+          <a href="https://saizen.one" target="_blank" class="work-link">サイトを見る →</a>
+        </div>
+      </div>
+
+      <!-- 2: keibei-matching -->
+      <div class="work-card">
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="browser-url">keibei-matching.vercel.app</span>
+          </div>
+          <div class="browser-content mock-keibei">
+            <div class="m-nav">
+              <div class="m-logo">警備マッチング</div>
+              <div class="m-nav-r">
+                <span class="m-login">ログイン</span>
+                <span class="m-reg">無料登録</span>
+              </div>
+            </div>
+            <div class="m-hero">
+              <div class="m-hero-tag">全国の案件を掲載中</div>
+              <div class="m-h1">警備の依頼を<br>もっとスマートに。</div>
+              <div class="m-search">
+                <span class="m-sel">都道府県を選択</span>
+                <span class="m-sel">警備種別を選択</span>
+                <span class="m-sbtn">検索する</span>
+              </div>
+            </div>
+            <div class="m-stats">
+              <div class="m-stat"><div class="m-stat-num">0件+</div><div class="m-stat-label">掲載案件数</div></div>
+              <div class="m-stat"><div class="m-stat-num">47都道府県</div><div class="m-stat-label">対応エリア</div></div>
+              <div class="m-stat"><div class="m-stat-num">24時間</div><div class="m-stat-label">稼働中</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="work-tags">
+            <span class="work-tag">Webアプリ</span>
+            <span class="work-tag tag-plan">マッチングサービス</span>
+            <span class="work-tag">警備業</span>
+          </div>
+          <h3>警備マッチング</h3>
+          <p>警備会社と発注企業をつなぐマッチングプラットフォーム。会員登録・案件検索・応募機能を実装。</p>
+          <a href="https://keibei-matching.vercel.app/" target="_blank" class="work-link">サイトを見る →</a>
+        </div>
+      </div>
+
+      <!-- 3: 美容院サンプル -->
+      <div class="work-card">
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="browser-url">hair-salon-sample.com（制作イメージ）</span>
+          </div>
+          <div class="browser-content mock-salon">
+            <div class="m-nav">
+              <div class="m-logo">✂ HAIR SALON KAZE</div>
+              <div class="m-nav-links">
+                <span>MENU</span><span>STYLE</span><span>STAFF</span><span>ACCESS</span>
+              </div>
+            </div>
+            <div class="m-hero">
+              <div class="m-catch">— BEAUTY & RELAX —</div>
+              <div class="m-h1">あなたらしい<br>スタイルへ。</div>
+              <div class="m-sub">カット・カラー・トリートメント<br>丁寧なヒアリングで理想の仕上がりに</div>
+              <div class="m-btn">今すぐ予約する</div>
+            </div>
+            <div class="m-services">
+              <div class="m-svc"><div class="m-svc-icon">✂</div><div class="m-svc-name">カット</div></div>
+              <div class="m-svc"><div class="m-svc-icon">🎨</div><div class="m-svc-name">カラー</div></div>
+              <div class="m-svc"><div class="m-svc-icon">💆</div><div class="m-svc-name">トリート</div></div>
+              <div class="m-svc"><div class="m-svc-icon">👰</div><div class="m-svc-name">ブライダル</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="work-tags">
+            <span class="work-tag">ランディングページ</span>
+            <span class="work-tag tag-plan">LP ¥10,000</span>
+            <span class="work-tag tag-sample">制作イメージ</span>
+          </div>
+          <h3>美容院・ヘアサロン LP</h3>
+          <p>予約促進に特化した1ページLP。温かみのあるデザインで来店を後押し。スマホ最適化済み。</p>
+          <span class="work-sample-note">※ご参考用のデザインサンプルです</span>
+        </div>
+      </div>
+
+      <!-- 4: 会社HP サンプル -->
+      <div class="work-card">
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="browser-url">company-sample.co.jp（制作イメージ）</span>
+          </div>
+          <div class="browser-content mock-corp">
+            <div class="m-nav">
+              <div class="m-logo">SORA<span>TECH</span></div>
+              <div class="m-nav-links">
+                <span>会社概要</span><span>事業内容</span><span>実績</span><span>採用</span><span>お問合せ</span>
+              </div>
+            </div>
+            <div class="m-hero">
+              <div class="m-tag">IT / 建設 / 製造 / 士業 など各業種対応</div>
+              <div class="m-h1">信頼される企業へ。<br>プロのWEBで差をつける。</div>
+              <div class="m-sub">採用・集客・信頼獲得——目的に合わせた<br>コーポレートサイトを最短即日で納品します。</div>
+              <div class="m-btns">
+                <span class="m-btn1">無料相談する</span>
+                <span class="m-btn2">制作実績を見る</span>
+              </div>
+            </div>
+            <div class="m-cards">
+              <div class="m-card"><div class="m-card-icon">🏢</div><div class="m-card-label">会社概要</div></div>
+              <div class="m-card"><div class="m-card-icon">💼</div><div class="m-card-label">事業内容</div></div>
+              <div class="m-card"><div class="m-card-icon">👥</div><div class="m-card-label">採用情報</div></div>
+              <div class="m-card"><div class="m-card-icon">📧</div><div class="m-card-label">お問合せ</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="work-tags">
+            <span class="work-tag">コーポレートサイト</span>
+            <span class="work-tag tag-plan">本格HP ¥30,000</span>
+            <span class="work-tag tag-sample">制作イメージ</span>
+          </div>
+          <h3>中小企業 コーポレートサイト</h3>
+          <p>IT・建設・製造・士業など幅広い業種に対応。採用・集客・信頼構築を目的とした多ページ構成。</p>
+          <span class="work-sample-note">※ご参考用のデザインサンプルです</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
-<section style="background: var(--bg-light);">
-  <div class="section-inner">
-    <div class="section-tag">FAQ</div>
+<section id="faq" class="section bg-light">
+  <div class="container">
+    <p class="section-label">FAQ</p>
     <h2>よくある質問</h2>
-    <p class="section-desc">お気軽にお問い合わせください。</p>
+    <p class="section-sub">お気軽にお問い合わせください。</p>
     <div class="faq-list">
-      <details>
-        <summary>完成イメージを確認してからお支払いとは？</summary>
-        <div class="faq-answer">ご依頼後、完成イメージをお見せしてからお支払いいただく仕組みです。気に入らなければ費用は一切発生しません。</div>
-      </details>
-      <details>
-        <summary>本当に即日納品できますか？</summary>
-        <div class="faq-answer">はい。ご依頼内容やボリュームによりますが、シンプルなLPであれば最短当日中に完成イメージをご提示できます。お急ぎの場合はその旨ご連絡ください。</div>
-      </details>
-      <details>
-        <summary>月額費用は本当にかかりませんか？</summary>
-        <div class="faq-answer">制作費のみのご請求で、月額・年額などの継続費用は一切いただきません。ただし、ドメイン・サーバー費用はお客様ご自身でのご負担となります（年間数千円程度）。</div>
-      </details>
-      <details>
-        <summary>修正はどこまで対応してもらえますか？</summary>
-        <div class="faq-answer">LPプランは1回、本格HPプランは2回まで無料で修正対応します。それ以上の修正や大幅な変更の場合は別途ご相談となります。</div>
-      </details>
-      <details>
-        <summary>WordPressでの制作は可能ですか？</summary>
-        <div class="faq-answer">はい、対応可能です。WordPress制作の場合は別途お見積りとなりますので、ご相談ください。</div>
-      </details>
-      <details>
-        <summary>公開後のサポートはありますか？</summary>
-        <div class="faq-answer">納品後もメールにてご相談を受け付けております。内容によって有償対応となる場合がありますが、まずはお気軽にご連絡ください。</div>
-      </details>
+      <div class="faq-item">
+        <div class="faq-q">完成イメージを確認してからお支払いとは？</div>
+        <div class="faq-a">ご依頼後、完成イメージをお見せしてからお支払いいただく仕組みです。気に入らなければ費用は一切発生しません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">本当に即日納品できますか？</div>
+        <div class="faq-a">はい。ご依頼内容やボリュームによりますが、シンプルなLPであれば最短当日中に完成イメージをご提示できます。お急ぎの場合はその旨ご連絡ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">月額費用は本当にかかりませんか？</div>
+        <div class="faq-a">制作費のみのご請求で、月額・年額などの継続費用は一切いただきません。ただし、ドメイン・サーバー費用はお客様ご自身でのご負担となります（年間数千円程度）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">修正はどこまで対応してもらえますか？</div>
+        <div class="faq-a">LPプランは1回、本格HPプランは2回まで無料で修正対応します。それ以上の修正や大幅な変更の場合は別途ご相談となります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">WordPressでの制作は可能ですか？</div>
+        <div class="faq-a">はい、対応可能です。WordPress制作の場合は別途お見積りとなりますので、ご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">公開後のサポートはありますか？</div>
+        <div class="faq-a">納品後もメールにてご相談を受け付けております。内容によって有償対応となる場合がありますが、まずはお気軽にご連絡ください。</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="section-inner">
-    <div class="section-tag" style="background:rgba(249,115,22,0.2); color:var(--accent-light);">CONTACT</div>
-    <h2>無料相談・お問い合わせ</h2>
-    <p class="section-desc">まずはお気軽にご連絡ください。最短即日でご返信します。</p>
-    <form class="contact-form" action="https://formspree.io/f/xnjlrqlb" method="POST">
+<section id="contact" class="contact-section">
+  <div class="container" style="text-align:center;">
+    <p class="section-label">CONTACT</p>
+    <h2 style="color:var(--white);margin-bottom:12px;">無料相談・お問い合わせ</h2>
+    <p class="section-sub">まずはお気軽にご連絡ください。最短即日でご返信します。</p>
+    <form class="contact-form" action="https://formspree.io/f/xnjlrqlb" method="POST" id="contactForm">
       <div class="form-group">
-        <label for="name">お名前</label>
-        <input type="text" id="name" name="お名前" placeholder="山田 太郎" required />
+        <label>お名前</label>
+        <input type="text" name="name" placeholder="山田 太郎" required />
       </div>
       <div class="form-group">
-        <label for="email">メールアドレス</label>
-        <input type="email" id="email" name="email" placeholder="example@email.com" required />
+        <label>メールアドレス</label>
+        <input type="email" name="email" placeholder="example@email.com" required />
       </div>
       <div class="form-group">
-        <label for="plan">ご希望プラン</label>
-        <select id="plan" name="プラン">
+        <label>ご希望プラン</label>
+        <select name="plan">
           <option value="">選択してください</option>
-          <option value="lp">LP（¥10,000）</option>
-          <option value="hp">本格HP（¥30,000）</option>
-          <option value="other">その他・未定</option>
+          <option value="LP（¥10,000）">LP（¥10,000）</option>
+          <option value="本格HP（¥30,000）">本格HP（¥30,000）</option>
+          <option value="その他・未定">その他・未定</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="message">ご要望・参考サイトなど</label>
-        <textarea id="message" name="内容" placeholder="どんなサイトを作りたいか、参考サイトのURLなどをお書きください。"></textarea>
+        <label>ご要望・参考サイトなど</label>
+        <textarea name="message" placeholder="ご要望、参考にしたいサイトのURL、業種などをご記入ください"></textarea>
       </div>
       <button type="submit" class="form-submit">送信する（無料）</button>
       <div class="form-success" id="formSuccess">送信が完了しました。1営業日以内にご返信します。</div>
@@ -561,34 +842,27 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <a href="index.html" class="footer-logo">SAIZEN <span>WEB</span></a>
-    <p class="footer-tagline">低価格・即日納品のホームページ制作サービス</p>
-    <div class="footer-links">
-      <a href="company.html">運営会社</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-      <a href="mailto:info@saizen.one">info@saizen.one</a>
-    </div>
-    <p class="footer-copy">© 2026 SAIZEN WEB. All rights reserved.</p>
+  <div class="footer-logo">SAIZEN <span>WEB</span></div>
+  <p class="footer-desc">低価格・即日納品のホームページ制作サービス</p>
+  <div class="footer-links">
+    <a href="company.html">運営会社</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="mailto:info@saizen.one">info@saizen.one</a>
   </div>
+  <p class="footer-copy">© 2026 SAIZEN WEB. All rights reserved.</p>
 </footer>
 
 <script>
-  const form = document.querySelector('.contact-form');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      form.reset();
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e) {
+    gtag('event', 'conversion', {'send_to': 'AW-18180741161'});
+    const btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = '送信中...';
+    setTimeout(() => {
       document.getElementById('formSuccess').style.display = 'block';
-      // Google広告コンバージョン計測
-      gtag('event', 'conversion', {'send_to': 'AW-18180741161'});
-    }
+      btn.style.display = 'none';
+    }, 1200);
   });
 </script>
 
