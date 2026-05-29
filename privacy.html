@@ -3,62 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>プライバシーポリシー | SAIZEN WEB</title>
+  <title>プライバシーポリシー｜SAIZEN WEB</title>
+  <link rel="icon" type="image/png" href="logo-01b.png" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #0a0a0a; --white: #ffffff; --accent: #1a56db;
-      --gray: #f4f4f5; --gray2: #6b7280; --border: #e5e7eb;
+      --accent: #f97316;
+      --black: #0d0d1a;
+      --white: #ffffff;
+      --gray2: #6b7280;
+      --gray3: #9ca3af;
+      --border: #e5e7eb;
+      --bg-light: #f8f9fa;
     }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; color: var(--black); background: var(--white); line-height: 1.8; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { text-decoration: none; color: inherit; }
 
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(13,13,26,0.95); backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw; height: 64px;
+      padding: 0 24px; height: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .nav-logo { font-size: 1.1rem; font-weight: 800; color: var(--black); text-decoration: none; }
+    .nav-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.05em; color: var(--white); }
     .nav-logo span { color: var(--accent); }
-    .nav-back { font-size: .85rem; color: var(--gray2); }
-    .nav-back:hover { color: var(--black); text-decoration: none; }
+    .nav-back { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+    .nav-back:hover { color: var(--accent); }
 
+    /* HERO */
     .page-hero {
-      background: linear-gradient(135deg, #0a0a0a, #1a237e);
-      color: var(--white); padding: 72px 5vw 60px; text-align: center;
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a0a00 50%, #0d0d1a 100%);
+      color: var(--white); text-align: center;
+      padding: 60px 24px 70px;
     }
-    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -.03em; margin-bottom: 8px; }
-    .page-hero p { color: rgba(255,255,255,.6); font-size: .9rem; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 10px; }
+    .page-hero p { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
 
-    main { max-width: 760px; margin: 0 auto; padding: 64px 5vw 80px; }
-
-    .policy-section { margin-bottom: 48px; }
+    /* CONTENT */
+    .content { max-width: 760px; margin: 60px auto; padding: 0 24px 80px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(249,115,22,0.1); color: var(--accent);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      padding: 3px 12px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .enacted { font-size: 0.85rem; color: var(--gray2); margin-bottom: 40px; }
+    .policy-section { margin-bottom: 40px; }
     .policy-section h2 {
-      font-size: 1.1rem; font-weight: 800;
-      border-left: 3px solid var(--accent);
-      padding-left: 14px; margin-bottom: 16px;
-      letter-spacing: -.01em;
+      font-size: 1rem; font-weight: 800; margin-bottom: 12px;
+      padding-left: 12px; border-left: 3px solid var(--accent);
     }
-    .policy-section p { font-size: .93rem; color: #333; margin-bottom: 12px; }
-    .policy-section ul { padding-left: 20px; margin-bottom: 12px; }
-    .policy-section ul li { font-size: .93rem; color: #333; margin-bottom: 6px; }
+    .policy-section p { font-size: 0.9rem; color: var(--gray2); margin-bottom: 8px; }
+    .policy-section ul { padding-left: 20px; }
+    .policy-section ul li { font-size: 0.9rem; color: var(--gray2); margin-bottom: 6px; }
 
-    .updated { font-size: .82rem; color: var(--gray2); text-align: right; margin-bottom: 40px; }
-
+    /* FOOTER */
     footer {
-      background: var(--black); color: rgba(255,255,255,.4);
-      padding: 32px 5vw; font-size: .82rem;
+      background: var(--white); color: var(--gray2);
+      border-top: 1px solid var(--border); padding: 40px 24px 24px;
     }
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
-    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); text-decoration: none; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--black); display: inline-block; margin-bottom: 8px; }
     .footer-logo span { color: var(--accent); }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { color: rgba(255,255,255,.45); font-size: .82rem; text-decoration: none; }
-    .footer-links a:hover { color: var(--white); }
-    .footer-copy { width: 100%; text-align: center; margin-top: 24px; font-size: .75rem; }
+    .footer-tagline { font-size: 0.82rem; color: var(--gray2); margin-bottom: 20px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.82rem; margin-bottom: 20px; }
+    .footer-links a { color: var(--gray2); }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--gray3); }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 12px; height: 44px; }
+      .nav-logo { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -73,91 +91,68 @@
   <p>個人情報の取り扱いについて</p>
 </div>
 
-<main>
-  <p class="updated">制定日：2026年6月1日</p>
+<div class="content">
+  <div class="section-tag">PRIVACY POLICY</div>
+  <p class="enacted">制定日：2026年6月1日</p>
 
   <div class="policy-section">
-    <p>SAIZEN WEB（運営：SAIZEN警備保障株式会社、以下「当社」）は、お客様の個人情報の保護を重要な責務と認識し、以下のとおりプライバシーポリシーを定め、適切な管理・運用に努めます。</p>
+    <h2>第1条（個人情報の定義）</h2>
+    <p>「個人情報」とは、個人情報保護法に定める個人情報を指し、氏名、メールアドレス、電話番号その他の記述により特定の個人を識別できる情報をいいます。</p>
   </div>
 
   <div class="policy-section">
-    <h2>第1条　取得する個人情報</h2>
-    <p>当社は、以下の情報をお客様からご提供いただく場合があります。</p>
-    <ul>
-      <li>氏名</li>
-      <li>メールアドレス</li>
-      <li>電話番号（任意）</li>
-      <li>会社名・屋号（任意）</li>
-      <li>お問い合わせ内容</li>
-      <li>その他、お客様がフォーム等に入力した情報</li>
-    </ul>
-    <p>また、ウェブサイトへのアクセス時に、IPアドレス・ブラウザ情報・閲覧履歴等の情報を自動的に取得する場合があります（Google Analyticsを使用）。</p>
+    <h2>第2条（個人情報の収集方法）</h2>
+    <p>当サービスは、お問い合わせフォームへの入力時に、お名前・メールアドレス・ご要望内容などの個人情報をご提供いただく場合があります。</p>
   </div>
 
   <div class="policy-section">
-    <h2>第2条　利用目的</h2>
-    <p>取得した個人情報は、以下の目的のために使用します。</p>
+    <h2>第3条（個人情報の利用目的）</h2>
+    <p>収集した個人情報は、以下の目的のみに使用します。</p>
     <ul>
-      <li>お問い合わせ・ご相談への回答、およびその後の連絡</li>
-      <li>サービスの提供・契約の履行</li>
-      <li>サービスに関する情報のご案内（同意いただいた場合）</li>
-      <li>サービスの改善・品質向上のための分析</li>
-      <li>法令に基づく対応</li>
+      <li>お問い合わせへの回答・連絡</li>
+      <li>サービスの提供・納品に関するご連絡</li>
+      <li>サービス改善のための分析（個人を特定しない形式）</li>
     </ul>
   </div>
 
   <div class="policy-section">
-    <h2>第3条　第三者への提供</h2>
-    <p>当社は、以下の場合を除き、お客様の個人情報を第三者に提供することはありません。</p>
-    <ul>
-      <li>お客様の同意がある場合</li>
-      <li>法令に基づく開示が必要な場合</li>
-      <li>人の生命・身体・財産の保護のために必要な場合</li>
-      <li>業務委託先（守秘義務を課した上で、必要最小限の情報のみ）</li>
-    </ul>
+    <h2>第4条（個人情報の第三者提供）</h2>
+    <p>当サービスは、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。</p>
   </div>
 
   <div class="policy-section">
-    <h2>第4条　Cookieおよびアクセス解析について</h2>
-    <p>当サイトでは、Google Analyticsを使用してアクセス状況を解析しています。Google Analyticsは、Cookieを使用してデータを収集しますが、個人を特定する情報は含みません。収集されたデータはGoogleのプライバシーポリシーに基づき管理されます。</p>
-    <p>Cookieを無効にする場合は、ブラウザの設定からいつでも変更できます。</p>
+    <h2>第5条（個人情報の管理）</h2>
+    <p>個人情報の漏洩・紛失・改ざんを防ぐため、適切な安全管理措置を講じます。</p>
   </div>
 
   <div class="policy-section">
-    <h2>第5条　個人情報の管理・安全対策</h2>
-    <p>当社は、個人情報への不正アクセス・紛失・破壊・改ざん・漏洩等を防止するため、適切な安全管理措置を講じます。個人情報を取り扱う業務の委託先に対しても、適切な監督を行います。</p>
+    <h2>第6条（Cookie・アクセス解析）</h2>
+    <p>当サービスでは、Google アナリティクス 4（GA4）を使用してアクセス状況を分析することがあります。GA4はCookieを使用しますが、個人を特定する情報は収集しません。Cookieの使用を拒否したい場合は、ブラウザの設定から無効にしてください。</p>
   </div>
 
   <div class="policy-section">
-    <h2>第6条　個人情報の開示・訂正・削除</h2>
-    <p>お客様は、当社が保有するご自身の個人情報について、開示・訂正・利用停止・削除を請求することができます。ご請求の際は、下記のお問い合わせ先までご連絡ください。ご本人確認のうえ、合理的な期間内に対応いたします。</p>
+    <h2>第7条（開示・訂正・削除）</h2>
+    <p>ご本人から個人情報の開示・訂正・削除のご請求があった場合、本人確認の上、速やかに対応いたします。下記お問い合わせ先までご連絡ください。</p>
   </div>
 
   <div class="policy-section">
-    <h2>第7条　プライバシーポリシーの変更</h2>
-    <p>本ポリシーは、法令の改正や事業内容の変更に応じて、予告なく変更する場合があります。変更後のポリシーは、当サイト上に掲載した時点で効力を生じるものとします。</p>
+    <h2>第8条（お問い合わせ）</h2>
+    <p>プライバシーポリシーに関するご質問は、下記までお問い合わせください。</p>
+    <p style="margin-top:8px;">メール：<a href="mailto:info@saizen.one" style="color:var(--accent);">info@saizen.one</a></p>
   </div>
-
-  <div class="policy-section">
-    <h2>第8条　お問い合わせ</h2>
-    <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
-    <p>
-      <strong>SAIZEN WEB（SAIZEN警備保障株式会社）</strong><br>
-      Email：<a href="mailto:info@saizen.one">info@saizen.one</a>
-    </p>
-  </div>
-</main>
+</div>
 
 <footer>
   <div class="footer-inner">
     <a href="index.html" class="footer-logo">SAIZEN <span>WEB</span></a>
+    <p class="footer-tagline">低価格・即日納品のホームページ制作サービス</p>
     <div class="footer-links">
-      <a href="index.html">トップ</a>
       <a href="company.html">運営会社</a>
+      <a href="privacy.html">プライバシーポリシー</a>
       <a href="mailto:info@saizen.one">info@saizen.one</a>
     </div>
+    <p class="footer-copy">© 2026 SAIZEN WEB. All rights reserved.</p>
   </div>
-  <div class="footer-copy">© 2026 SAIZEN WEB All rights reserved.</div>
 </footer>
 
 </body>

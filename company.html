@@ -3,56 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>運営会社 | SAIZEN WEB</title>
-  <meta name="description" content="SAIZEN WEBの運営会社情報です。" />
+  <title>運営会社｜SAIZEN WEB</title>
+  <link rel="icon" type="image/png" href="logo-01b.png" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #0a0a0a; --white: #ffffff; --accent: #1a56db;
-      --gray: #f4f4f5; --gray2: #6b7280; --border: #e5e7eb;
+      --accent: #f97316;
+      --black: #0d0d1a;
+      --white: #ffffff;
+      --gray2: #6b7280;
+      --gray3: #9ca3af;
+      --border: #e5e7eb;
+      --bg-light: #f8f9fa;
     }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; color: var(--black); background: var(--white); line-height: 1.7; }
-    a { color: inherit; text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
 
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(13,13,26,0.95); backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw; height: 64px;
+      padding: 0 24px; height: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .nav-logo { font-size: 1.1rem; font-weight: 800; }
+    .nav-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.05em; color: var(--white); }
     .nav-logo span { color: var(--accent); }
-    .nav-back { font-size: .85rem; color: var(--gray2); display: flex; align-items: center; gap: 6px; }
-    .nav-back:hover { color: var(--black); }
+    .nav-back { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+    .nav-back:hover { color: var(--accent); }
 
+    /* HERO */
     .page-hero {
-      background: linear-gradient(135deg, #0a0a0a, #1a237e);
-      color: var(--white); padding: 72px 5vw 60px; text-align: center;
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a0a00 50%, #0d0d1a 100%);
+      color: var(--white); text-align: center;
+      padding: 60px 24px 70px;
     }
-    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -.03em; margin-bottom: 8px; }
-    .page-hero p { color: rgba(255,255,255,.6); font-size: .95rem; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 10px; }
+    .page-hero p { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
 
-    main { max-width: 760px; margin: 0 auto; padding: 64px 5vw 80px; }
+    /* CONTENT */
+    .content { max-width: 760px; margin: 60px auto; padding: 0 24px 80px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(249,115,22,0.1); color: var(--accent);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      padding: 3px 12px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table th, .info-table td {
+      padding: 16px 20px; text-align: left;
+      border-bottom: 1px solid var(--border); font-size: 0.95rem;
+    }
+    .info-table th {
+      width: 160px; font-weight: 700; color: var(--gray2);
+      background: var(--bg-light); white-space: nowrap;
+    }
+    .info-table td { color: var(--black); }
 
-    .company-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-    .company-table th, .company-table td { padding: 18px 20px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
-    .company-table th { width: 160px; font-size: .85rem; font-weight: 700; color: var(--gray2); background: var(--gray); white-space: nowrap; }
-    .company-table td { font-size: .95rem; }
-
-    h2 { font-size: 1.4rem; font-weight: 900; margin-bottom: 24px; letter-spacing: -.02em; }
-
+    /* FOOTER */
     footer {
-      background: var(--black); color: rgba(255,255,255,.4);
-      padding: 32px 5vw; font-size: .82rem;
+      background: var(--white); color: var(--gray2);
+      border-top: 1px solid var(--border); padding: 40px 24px 24px;
     }
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
-    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--black); display: inline-block; margin-bottom: 8px; }
     .footer-logo span { color: var(--accent); }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { color: rgba(255,255,255,.45); font-size: .82rem; }
-    .footer-links a:hover { color: var(--white); }
-    .footer-copy { width: 100%; text-align: center; margin-top: 24px; font-size: .75rem; }
+    .footer-tagline { font-size: 0.82rem; color: var(--gray2); margin-bottom: 20px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.82rem; margin-bottom: 20px; }
+    .footer-links a { color: var(--gray2); }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--gray3); }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 12px; height: 44px; }
+      .nav-logo { font-size: 1rem; }
+      .info-table th { width: 110px; font-size: 0.85rem; padding: 12px 12px; }
+      .info-table td { font-size: 0.85rem; padding: 12px 12px; }
+    }
   </style>
 </head>
 <body>
@@ -67,50 +94,47 @@
   <p>SAIZEN WEB 運営会社情報</p>
 </div>
 
-<main>
-  <h2>会社概要</h2>
-  <table class="company-table">
-    <tr>
-      <th>会社名</th>
-      <td>SAIZEN警備保障株式会社</td>
-    </tr>
+<div class="content">
+  <div class="section-tag">COMPANY</div>
+  <table class="info-table">
     <tr>
       <th>サービス名</th>
-      <td>SAIZEN WEB（ホームページ制作事業部）</td>
+      <td>SAIZEN WEB</td>
     </tr>
     <tr>
-      <th>所在地</th>
-      <td>〒733-0011　広島県広島市西区横川町3丁目1-9-305</td>
+      <th>運営会社</th>
+      <td>SAIZEN警備保障株式会社</td>
     </tr>
     <tr>
       <th>代表者</th>
       <td>末貞 皓己</td>
     </tr>
     <tr>
+      <th>所在地</th>
+      <td>〒733-0011 広島県広島市西区横川町3丁目1-9-305</td>
+    </tr>
+    <tr>
       <th>設立</th>
       <td>令和6年6月6日</td>
     </tr>
     <tr>
-      <th>事業内容</th>
-      <td>ホームページ制作・Webデザイン・警備事業</td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
+      <th>メール</th>
       <td><a href="mailto:info@saizen.one" style="color:var(--accent);">info@saizen.one</a></td>
     </tr>
   </table>
-</main>
+</div>
 
 <footer>
   <div class="footer-inner">
     <a href="index.html" class="footer-logo">SAIZEN <span>WEB</span></a>
+    <p class="footer-tagline">低価格・即日納品のホームページ制作サービス</p>
     <div class="footer-links">
-      <a href="index.html">トップ</a>
+      <a href="company.html">運営会社</a>
       <a href="privacy.html">プライバシーポリシー</a>
       <a href="mailto:info@saizen.one">info@saizen.one</a>
     </div>
+    <p class="footer-copy">© 2026 SAIZEN WEB. All rights reserved.</p>
   </div>
-  <div class="footer-copy">© 2026 SAIZEN WEB All rights reserved.</div>
 </footer>
 
 </body>
