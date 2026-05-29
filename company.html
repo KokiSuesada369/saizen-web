@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>運営会社 | SAIZEN WEB</title>
+  <meta name="description" content="SAIZEN WEBの運営会社情報です。" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a; --white: #ffffff; --accent: #1a56db;
+      --gray: #f4f4f5; --gray2: #6b7280; --border: #e5e7eb;
+    }
+    body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; color: var(--black); background: var(--white); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 64px;
+    }
+    .nav-logo { font-size: 1.1rem; font-weight: 800; }
+    .nav-logo span { color: var(--accent); }
+    .nav-back { font-size: .85rem; color: var(--gray2); display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--black); }
+
+    .page-hero {
+      background: linear-gradient(135deg, #0a0a0a, #1a237e);
+      color: var(--white); padding: 72px 5vw 60px; text-align: center;
+    }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -.03em; margin-bottom: 8px; }
+    .page-hero p { color: rgba(255,255,255,.6); font-size: .95rem; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 64px 5vw 80px; }
+
+    .company-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .company-table th, .company-table td { padding: 18px 20px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .company-table th { width: 160px; font-size: .85rem; font-weight: 700; color: var(--gray2); background: var(--gray); white-space: nowrap; }
+    .company-table td { font-size: .95rem; }
+
+    h2 { font-size: 1.4rem; font-weight: 900; margin-bottom: 24px; letter-spacing: -.02em; }
+
+    footer {
+      background: var(--black); color: rgba(255,255,255,.4);
+      padding: 32px 5vw; font-size: .82rem;
+    }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: rgba(255,255,255,.45); font-size: .82rem; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { width: 100%; text-align: center; margin-top: 24px; font-size: .75rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">SAIZEN <span>WEB</span></a>
+  <a href="index.html" class="nav-back">← トップページへ戻る</a>
+</nav>
+
+<div class="page-hero">
+  <h1>運営会社</h1>
+  <p>SAIZEN WEB 運営会社情報</p>
+</div>
+
+<main>
+  <h2>会社概要</h2>
+  <table class="company-table">
+    <tr>
+      <th>会社名</th>
+      <td>SAIZEN警備保障株式会社</td>
+    </tr>
+    <tr>
+      <th>サービス名</th>
+      <td>SAIZEN WEB（ホームページ制作事業部）</td>
+    </tr>
+    <tr>
+      <th>所在地</th>
+      <td>〒733-0011　広島県広島市西区横川町3丁目1-9-305</td>
+    </tr>
+    <tr>
+      <th>代表者</th>
+      <td>末貞 皓己</td>
+    </tr>
+    <tr>
+      <th>設立</th>
+      <td>令和6年6月6日</td>
+    </tr>
+    <tr>
+      <th>事業内容</th>
+      <td>ホームページ制作・Webデザイン・警備事業</td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><a href="mailto:info@saizen.one" style="color:var(--accent);">info@saizen.one</a></td>
+    </tr>
+  </table>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">SAIZEN <span>WEB</span></a>
+    <div class="footer-links">
+      <a href="index.html">トップ</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="mailto:info@saizen.one">info@saizen.one</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 SAIZEN WEB All rights reserved.</div>
+</footer>
+
+</body>
+</html>
