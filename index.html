@@ -46,7 +46,6 @@
       color: var(--white); text-align: center;
       padding: 80px 24px 100px;
     }
-    /* Hero badges row */
     .hero-badges {
       display: flex; justify-content: center; gap: 8px;
       flex-wrap: wrap; margin-bottom: 24px;
@@ -82,9 +81,7 @@
     }
     .hero-trust .trust-main span { color: var(--accent); }
     .hero-trust .trust-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
-    .hero-btns {
-      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
       background: var(--accent); color: var(--white);
       padding: 14px 32px; border-radius: 8px;
@@ -221,6 +218,11 @@
       font-size: 1rem; font-weight: 800; cursor: pointer; transition: opacity 0.2s;
     }
     .form-submit:hover { opacity: 0.85; }
+    .form-success {
+      display: none; background: rgba(249,115,22,0.15); border: 1px solid var(--accent);
+      border-radius: 8px; padding: 16px; text-align: center;
+      color: var(--accent-light); font-weight: 700; margin-top: 16px;
+    }
 
     /* FOOTER */
     footer {
@@ -241,17 +243,13 @@
       nav { padding: 0 12px; height: 44px; }
       .nav-logo { font-size: 1rem; }
       .nav-cta { padding: 6px 12px; font-size: 0.78rem; }
-
       .hero { padding: 48px 16px 64px; }
       .hero-badges { gap: 6px; }
       .hero-badge { font-size: 0.72rem; padding: 3px 10px; }
-
       .hero-btns { flex-direction: row; gap: 8px; }
       .btn-primary, .btn-secondary {
-        flex: 0 0 auto;
-        width: auto;
-        padding: 11px 18px;
-        font-size: 0.85rem;
+        flex: 0 0 auto; width: auto;
+        padding: 11px 18px; font-size: 0.85rem;
       }
     }
   </style>
@@ -515,14 +513,14 @@
     <div class="section-tag" style="background:rgba(249,115,22,0.2); color:var(--accent-light);">CONTACT</div>
     <h2>無料相談・お問い合わせ</h2>
     <p class="section-desc">まずはお気軽にご連絡ください。最短即日でご返信します。</p>
-    <form class="contact-form" action="mailto:info@saizen.one" method="get" enctype="text/plain">
+    <form class="contact-form" action="https://formspree.io/f/xnjlrqlb" method="POST">
       <div class="form-group">
         <label for="name">お名前</label>
         <input type="text" id="name" name="お名前" placeholder="山田 太郎" required />
       </div>
       <div class="form-group">
         <label for="email">メールアドレス</label>
-        <input type="email" id="email" name="メールアドレス" placeholder="example@email.com" required />
+        <input type="email" id="email" name="email" placeholder="example@email.com" required />
       </div>
       <div class="form-group">
         <label for="plan">ご希望プラン</label>
@@ -538,6 +536,7 @@
         <textarea id="message" name="内容" placeholder="どんなサイトを作りたいか、参考サイトのURLなどをお書きください。"></textarea>
       </div>
       <button type="submit" class="form-submit">送信する（無料）</button>
+      <div class="form-success" id="formSuccess">送信が完了しました。1営業日以内にご返信します。</div>
     </form>
   </div>
 </section>
@@ -555,6 +554,23 @@
     <p class="footer-copy">© 2026 SAIZEN WEB. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  });
+</script>
 
 </body>
 </html>
