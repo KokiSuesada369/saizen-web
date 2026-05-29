@@ -812,7 +812,8 @@
     <p class="section-label">CONTACT</p>
     <h2 style="color:var(--white);margin-bottom:12px;">無料相談・お問い合わせ</h2>
     <p class="section-sub">まずはお気軽にご連絡ください。最短即日でご返信します。</p>
-    <form class="contact-form" action="https://formspree.io/f/xnjlrqlb" method="POST" id="contactForm">
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+      <input type="hidden" name="access_key" value="2fefbbd5-d31e-4d40-b19f-94ae8b5ee14d">
       <div class="form-group">
         <label>お名前</label>
         <input type="text" name="name" placeholder="山田 太郎" required />
@@ -854,15 +855,28 @@
 
 <script>
   const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
     gtag('event', 'conversion', {'send_to': 'AW-18180741161'});
     const btn = form.querySelector('.form-submit');
     btn.disabled = true;
     btn.textContent = '送信中...';
-    setTimeout(() => {
+
+    const data = new FormData(form);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    });
+
+    if (response.ok) {
       document.getElementById('formSuccess').style.display = 'block';
       btn.style.display = 'none';
-    }, 1200);
+      form.reset();
+    } else {
+      btn.disabled = false;
+      btn.textContent = '送信する（無料）';
+      alert('送信に失敗しました。時間をおいて再度お試しください。');
+    }
   });
 </script>
 
